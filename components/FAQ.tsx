@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
+// FAQ Component - Preguntas frecuentes sobre servicios y planes
+
 const faqs = [
   {
     id: 1,
