@@ -66,17 +66,18 @@ interface PortfolioCardProps {
   item: typeof portfolioItems[0]
   onSelect: () => void
   index?: number
+  isMobile?: boolean
 }
 
-function PortfolioCard({ item, onSelect, index }: PortfolioCardProps) {
+function PortfolioCard({ item, onSelect, index, isMobile = false }: PortfolioCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: (index ?? 0) * 0.1 }}
-      whileHover={{ scale: 1.02 }}
-      className="relative group cursor-pointer overflow-hidden rounded-xl"
+      whileHover={!isMobile ? { scale: 1.02 } : {}}
+      className="relative group cursor-pointer overflow-hidden rounded-xl w-full"
       onClick={onSelect}
     >
       {/* Image */}
@@ -139,9 +140,7 @@ export default function Portfolio() {
         <div className="md:hidden">
           <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
             {portfolioItems.map((item) => (
-              <div key={item.id} className="px-2">
-                <PortfolioCard item={item} onSelect={() => setSelectedItem(item)} />
-              </div>
+              <PortfolioCard key={item.id} item={item} onSelect={() => setSelectedItem(item)} isMobile={true} />
             ))}
           </Carousel>
         </div>

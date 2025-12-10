@@ -89,9 +89,10 @@ interface ServiceCardProps {
   service: typeof services[0]
   getWhatsAppUrl: (serviceTitle: string) => string
   index?: number
+  isMobile?: boolean
 }
 
-function ServiceCard({ service, getWhatsAppUrl, index }: ServiceCardProps) {
+function ServiceCard({ service, getWhatsAppUrl, index, isMobile = false }: ServiceCardProps) {
   const [hoveredId, setHoveredId] = useState<number | null>(null)
 
   return (
@@ -102,45 +103,45 @@ function ServiceCard({ service, getWhatsAppUrl, index }: ServiceCardProps) {
       transition={{ duration: 0.6, delay: (index ?? 0) * 0.1 }}
       onMouseEnter={() => setHoveredId(service.id)}
       onMouseLeave={() => setHoveredId(null)}
-      className="relative group"
+      className="relative group w-full"
     >
       <div
-        className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col ${
-          hoveredId === service.id ? 'transform scale-105' : ''
+        className={`bg-white rounded-2xl ${isMobile ? 'p-6' : 'p-8'} shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col ${
+          hoveredId === service.id && !isMobile ? 'transform scale-105' : ''
         }`}
       >
         {/* Icon */}
-        <div className="mb-6">
+        <div className={isMobile ? 'mb-4' : 'mb-6'}>
           <div
-            className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center text-3xl shadow-lg`}
+            className={`${isMobile ? 'w-14 h-14 text-2xl' : 'w-16 h-16 text-3xl'} rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg`}
           >
             {service.icon}
           </div>
         </div>
 
         {/* Title */}
-        <h3 className="text-2xl font-bold text-primary-purple mb-3">
+        <h3 className={`${isMobile ? 'text-xl mb-2' : 'text-2xl mb-3'} font-bold text-primary-purple`}>
           {service.title}
         </h3>
 
         {/* Description */}
-        <p className="text-gray-600 mb-6 flex-grow">
+        <p className={`text-gray-600 ${isMobile ? 'mb-4 text-sm' : 'mb-6'} flex-grow leading-relaxed`}>
           {service.description}
         </p>
 
         {/* Features */}
-        <ul className="space-y-2 mb-6">
+        <ul className={`${isMobile ? 'space-y-1.5 mb-4' : 'space-y-2 mb-6'}`}>
           {service.features.map((feature, idx) => (
-            <li key={idx} className="flex items-center text-gray-700">
-              <span className="text-primary-coral mr-2">✓</span>
-              {feature}
+            <li key={idx} className={`flex items-center text-gray-700 ${isMobile ? 'text-xs' : ''}`}>
+              <span className="text-primary-coral mr-2 flex-shrink-0">✓</span>
+              <span className="leading-relaxed">{feature}</span>
             </li>
           ))}
         </ul>
 
         {/* Price */}
-        <div className="mb-6">
-          <span className="text-3xl font-bold text-primary-purple">
+        <div className={isMobile ? 'mb-4' : 'mb-6'}>
+          <span className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-primary-purple`}>
             {service.price}
           </span>
         </div>
@@ -158,7 +159,7 @@ function ServiceCard({ service, getWhatsAppUrl, index }: ServiceCardProps) {
               })
             }
           }}
-          className={`w-full py-3 rounded-full font-semibold text-white bg-gradient-to-r ${service.color} hover:shadow-lg transition-all duration-300 hover:scale-105 text-center block`}
+          className={`w-full ${isMobile ? 'py-2.5 text-sm' : 'py-3'} rounded-full font-semibold text-white bg-gradient-to-r ${service.color} hover:shadow-lg transition-all duration-300 hover:scale-105 text-center block`}
         >
           Solicitar este servicio
         </a>
@@ -201,9 +202,7 @@ export default function Services() {
         <div className="md:hidden">
           <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
             {services.map((service) => (
-              <div key={service.id} className="px-2">
-                <ServiceCard service={service} getWhatsAppUrl={getWhatsAppUrl} />
-              </div>
+              <ServiceCard key={service.id} service={service} getWhatsAppUrl={getWhatsAppUrl} isMobile={true} />
             ))}
           </Carousel>
         </div>

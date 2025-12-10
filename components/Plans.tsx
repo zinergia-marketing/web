@@ -77,9 +77,10 @@ interface PlanCardProps {
   plan: typeof plans[0]
   getWhatsAppUrl: (planName: string, planSubtitle: string) => string
   index?: number
+  isMobile?: boolean
 }
 
-function PlanCard({ plan, getWhatsAppUrl, index }: PlanCardProps) {
+function PlanCard({ plan, getWhatsAppUrl, index, isMobile = false }: PlanCardProps) {
   const [hoveredId, setHoveredId] = useState<number | null>(null)
 
   return (
@@ -90,7 +91,7 @@ function PlanCard({ plan, getWhatsAppUrl, index }: PlanCardProps) {
       transition={{ duration: 0.6, delay: (index ?? 0) * 0.1 }}
       onMouseEnter={() => setHoveredId(plan.id)}
       onMouseLeave={() => setHoveredId(null)}
-      className="relative group"
+      className="relative group w-full"
     >
       {/* Popular Badge */}
       {plan.popular && (
@@ -102,32 +103,32 @@ function PlanCard({ plan, getWhatsAppUrl, index }: PlanCardProps) {
       )}
 
       <div
-        className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col border-2 ${
+        className={`bg-white rounded-2xl ${isMobile ? 'p-6' : 'p-8'} shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col border-2 ${
           plan.popular 
             ? 'border-primary-coral' 
             : 'border-transparent'
         } ${
-          hoveredId === plan.id ? 'transform scale-105' : ''
+          hoveredId === plan.id && !isMobile ? 'transform scale-105' : ''
         }`}
       >
         {/* Icon & Name */}
-        <div className="mb-6 text-center">
+        <div className={`${isMobile ? 'mb-4' : 'mb-6'} text-center`}>
           <div
-            className={`w-16 h-16 rounded-xl bg-gradient-to-br ${plan.color} flex items-center justify-center text-3xl shadow-lg mx-auto mb-4`}
+            className={`${isMobile ? 'w-14 h-14 text-2xl mb-3' : 'w-16 h-16 text-3xl mb-4'} rounded-xl bg-gradient-to-br ${plan.color} flex items-center justify-center shadow-lg mx-auto`}
           >
             {plan.icon}
           </div>
-          <h3 className="text-3xl font-bold text-primary-purple mb-1">
+          <h3 className={`${isMobile ? 'text-2xl mb-1' : 'text-3xl mb-1'} font-bold text-primary-purple`}>
             {plan.name}
           </h3>
-          <p className="text-gray-500 text-sm font-medium">
+          <p className={`${isMobile ? 'text-xs' : 'text-sm'} text-gray-500 font-medium`}>
             {plan.subtitle}
           </p>
         </div>
 
         {/* Price */}
-        <div className="mb-6 text-center">
-          <span className="text-4xl font-bold text-primary-purple">
+        <div className={`${isMobile ? 'mb-4' : 'mb-6'} text-center`}>
+          <span className={`${isMobile ? 'text-3xl' : 'text-4xl'} font-bold text-primary-purple`}>
             {plan.price}
           </span>
           <span className="text-gray-500 text-sm block mt-1">
@@ -136,23 +137,23 @@ function PlanCard({ plan, getWhatsAppUrl, index }: PlanCardProps) {
         </div>
 
         {/* Benefit */}
-        <p className="text-gray-700 mb-6 text-center font-medium">
+        <p className={`${isMobile ? 'mb-4 text-sm' : 'mb-6'} text-gray-700 text-center font-medium`}>
           {plan.benefit}
         </p>
 
         {/* Features */}
-        <ul className="space-y-3 mb-8 flex-grow">
+        <ul className={`${isMobile ? 'space-y-2 mb-6' : 'space-y-3 mb-8'} flex-grow`}>
           {plan.features.map((feature, idx) => (
-            <li key={idx} className="flex items-start text-gray-700 text-sm">
-              <span className="text-primary-coral mr-2 mt-1 flex-shrink-0">✓</span>
-              <span>{feature}</span>
+            <li key={idx} className={`flex items-start text-gray-700 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+              <span className="text-primary-coral mr-2 mt-0.5 flex-shrink-0">✓</span>
+              <span className="leading-relaxed">{feature}</span>
             </li>
           ))}
         </ul>
 
         {/* Ideal For */}
-        <div className="mb-6 p-4 bg-primary-neutral/20 rounded-lg">
-          <p className="text-xs text-gray-600 italic text-center">
+        <div className={`${isMobile ? 'mb-4 p-3' : 'mb-6 p-4'} bg-primary-neutral/20 rounded-lg`}>
+          <p className={`${isMobile ? 'text-xs' : 'text-xs'} text-gray-600 italic text-center leading-relaxed`}>
             {plan.idealFor}
           </p>
         </div>
@@ -170,8 +171,8 @@ function PlanCard({ plan, getWhatsAppUrl, index }: PlanCardProps) {
               })
             }
           }}
-          className={`w-full py-4 rounded-full font-bold text-white bg-gradient-to-r ${plan.color} hover:shadow-lg transition-all duration-300 hover:scale-105 text-center block ${
-            plan.popular ? 'text-lg' : ''
+          className={`w-full ${isMobile ? 'py-3 text-base' : 'py-4'} rounded-full font-bold text-white bg-gradient-to-r ${plan.color} hover:shadow-lg transition-all duration-300 hover:scale-105 text-center block ${
+            plan.popular && !isMobile ? 'text-lg' : ''
           }`}
         >
           {plan.popular ? 'Contratar Plan Popular' : 'Solicitar este plan'}
@@ -215,9 +216,7 @@ export default function Plans() {
         <div className="lg:hidden">
           <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
             {plans.map((plan) => (
-              <div key={plan.id} className="px-2">
-                <PlanCard plan={plan} getWhatsAppUrl={getWhatsAppUrl} />
-              </div>
+              <PlanCard key={plan.id} plan={plan} getWhatsAppUrl={getWhatsAppUrl} isMobile={true} />
             ))}
           </Carousel>
         </div>
