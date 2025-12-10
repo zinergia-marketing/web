@@ -26,12 +26,12 @@ const portfolioItems = [
   },
   {
     id: 3,
-    title: 'Startup Tech',
-    category: 'Branding + Redes',
-    description: 'Identidad visual y estrategia de redes sociales',
-    result: '200% crecimiento en engagement',
-    image: '/images/portfolio/startup-tech.jpg', // Reemplaza con tu imagen
-    industry: 'SaaS',
+    title: 'Tecnomas Colombia',
+    category: 'Gestión de Redes + Página Web',
+    description: 'Estrategia integral de gestión de redes sociales y desarrollo de página web para empresa de tecnología. Implementamos una presencia digital coherente que conecta la estrategia de redes sociales con una página web optimizada, creando un ecosistema digital que potencia el engagement y la conversión.',
+    result: '200% crecimiento de engagement',
+    image: '/images/portfolio/imagen-portafolio-tecnomas.jpg',
+    industry: 'Tecnología',
   },
   {
     id: 4,
