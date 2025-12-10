@@ -164,32 +164,6 @@ export default function Portfolio() {
             />
           ))}
         </div>
-
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="text-center mt-8 sm:mt-10 lg:mt-12"
-        >
-          <a
-            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573243463101'}?text=${encodeURIComponent('Hola, me gustaría solicitar una cotización para mi proyecto. Me interesa conocer más sobre los servicios de Zinergia.')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => {
-              if (typeof window !== 'undefined' && window.gtag) {
-                window.gtag('event', 'click', {
-                  event_category: 'CTA',
-                  event_label: 'Solicitar Cotización Portfolio',
-                })
-              }
-            }}
-            className="inline-block px-8 py-4 bg-gradient-primary text-white rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
-          >
-            Solicitar cotización
-          </a>
-        </motion.div>
       </div>
 
       {/* Modal */}
@@ -251,24 +225,6 @@ export default function Portfolio() {
                   </p>
                 </div>
               </div>
-
-              <a
-                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573243463101'}?text=${encodeURIComponent(`Hola, vi el caso de éxito de ${selectedItem.title} y me gustaría solicitar una cotización para lograr resultados similares.`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => {
-                  setSelectedItem(null)
-                  if (typeof window !== 'undefined' && window.gtag) {
-                    window.gtag('event', 'click', {
-                      event_category: 'Portfolio',
-                      event_label: selectedItem.title,
-                    })
-                  }
-                }}
-                className="mt-6 w-full py-3 bg-gradient-primary text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 text-center block"
-              >
-                Solicitar cotización
-              </a>
             </motion.div>
           </motion.div>
         )}
