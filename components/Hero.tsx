@@ -54,7 +54,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-12 lg:pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-8 lg:pb-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="pt-4 sm:pt-6 lg:pt-10 pb-0 lg:pb-8 flex flex-wrap items-center justify-center gap-6 text-white/80 text-sm"
+            className="pt-4 sm:pt-6 lg:pt-10 pb-0 lg:pb-4 flex flex-wrap items-center justify-center gap-6 text-white/80 text-sm"
           >
             <div className="flex items-center gap-2">
               <span className="text-2xl">✓</span>
