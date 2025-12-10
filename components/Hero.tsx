@@ -82,8 +82,8 @@ export default function Hero() {
           >
             Impulsa tu Negocio
             <br />
-            <span className="bg-gradient-to-r from-primary-coral to-white bg-clip-text text-transparent">
-              con Creatividad + IA
+            <span className="bg-gradient-to-r from-primary-coral to-white bg-clip-text text-transparent whitespace-nowrap">
+              con&nbsp;Creatividad&nbsp;+&nbsp;IA
             </span>
           </motion.h1>
 
