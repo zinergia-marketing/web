@@ -27,7 +27,7 @@ const portfolioItems = [
   {
     id: 3,
     title: 'Tecnomas Colombia',
-    category: 'Gestión de Redes + Página Web',
+    category: 'Redes + Página Web',
     description: 'Estrategia integral de gestión de redes sociales y desarrollo de página web para empresa de tecnología. Implementamos una presencia digital coherente que conecta la estrategia de redes sociales con una página web optimizada, creando un ecosistema digital que potencia el engagement y la conversión.',
     result: '200% crecimiento de engagement',
     image: '/images/portfolio/imagen-portafolio-tecnomas.jpg',
@@ -96,6 +96,7 @@ function PortfolioCard({ item, onSelect, index, isMobile = false }: PortfolioCar
             <div className="text-4xl mb-2">
               {item.category === 'Video Editing' || item.category.includes('Edición de Video') ? '📹' : 
                item.category === 'Landing Page' ? '🚀' : 
+               item.category.includes('Redes') || item.category.includes('Gestión de Redes') ? '📱' :
                item.category.includes('Branding') ? '🎨' : '🎨'}
             </div>
             <h3 className="text-xl font-bold mb-1">{item.title}</h3>
