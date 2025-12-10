@@ -104,7 +104,7 @@ export default function Hero() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto"
           >
-            Convertimos PyMEs en marcas digitales de alto impacto.
+            para PyMEs colombianas que venden en redes sociales
             <br />
             Resultados medibles en 30 días.
           </motion.p>

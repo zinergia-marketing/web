@@ -12,7 +12,7 @@ const plans = [
   {
     id: 1,
     name: 'Plan Básico',
-    subtitle: 'Inicio Digital',
+    subtitle: 'ideal para quienes inician',
     price: 800000,
     benefit: 'Construye tu presencia digital y genera tus primeros leads de forma profesional',
     idealFor: 'Emprendedores y microempresas que inician su presencia digital y necesitan contenido profesional sin una inversión alta',
@@ -33,7 +33,7 @@ const plans = [
   {
     id: 2,
     name: 'Plan Estándar',
-    subtitle: 'Crecimiento Acelerado',
+    subtitle: 'ideal para quienes crecen',
     price: 1200000,
     benefit: 'Acelera tu crecimiento con contenido estratégico y pautas optimizadas que generan ventas constantes',
     idealFor: 'PyMEs en crecimiento que buscan escalar ventas con marketing digital estructurado y resultados medibles',
@@ -54,7 +54,7 @@ const plans = [
   {
     id: 3,
     name: 'Plan Avanzado',
-    subtitle: 'Escalamiento Premium',
+    subtitle: 'ideal para quienes escalan',
     price: 2500000,
     benefit: 'Escala agresivamente con una estrategia integral que maximiza conversiones y ROI',
     idealFor: 'Empresas que buscan escalar resultados, maximizar ROI y necesitan una estrategia integral con soporte estratégico continuo',
@@ -105,7 +105,7 @@ function PlanCard({ plan, getWhatsAppUrl, index, isMobile = false }: PlanCardPro
       )}
 
       <div
-        className={`bg-white rounded-2xl ${isMobile ? 'p-5' : 'p-8'} shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col border-2 ${
+        className={`${plan.popular ? 'bg-primary-neutral/10' : 'bg-white'} rounded-2xl ${isMobile ? 'p-5' : 'p-8'} shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col border-2 ${
           plan.popular 
             ? 'border-primary-coral' 
             : 'border-transparent'
