@@ -105,12 +105,12 @@ export default function Carousel({
     >
       {/* Carousel Container */}
       <div
-        className="w-full pt-2 overflow-hidden"
+        className="w-full pt-2 overflow-x-hidden overflow-y-visible"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="overflow-hidden">
+        <div className="overflow-x-hidden overflow-y-visible">
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{
