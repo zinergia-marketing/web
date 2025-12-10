@@ -80,10 +80,10 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
           >
-            Impulsa tu Negocio con
+            Impulsa tu Negocio
             <br />
             <span className="bg-gradient-to-r from-primary-coral to-white bg-clip-text text-transparent">
-              Creatividad + IA
+              con Creatividad + IA
             </span>
           </motion.h1>
 
