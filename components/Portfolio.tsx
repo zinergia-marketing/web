@@ -35,12 +35,12 @@ const portfolioItems = [
   },
   {
     id: 4,
-    title: 'Local Business',
-    category: 'Diseño Gráfico',
-    description: 'Contenido visual para restaurante local',
-    result: '5x seguidores en Instagram',
-    image: '/images/portfolio/local-business.jpg', // Reemplaza con tu imagen
-    industry: 'Food & Beverage',
+    title: 'Invicta Store',
+    category: 'Edición de Video',
+    description: 'Estrategia de video marketing para tienda de moda. Desarrollamos contenido visual atractivo que muestra las tendencias de moda y productos de manera dinámica, creando videos que conectan con el público objetivo y generan conversiones significativas en redes sociales.',
+    result: 'Aumentó 200% conversión',
+    image: '/images/portfolio/imagen-portafolio-invictastore.jpg',
+    industry: 'Moda',
   },
   {
     id: 5,
