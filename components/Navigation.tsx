@@ -104,6 +104,16 @@ export default function Navigation() {
               Testimonios
             </button>
             <button
+              onClick={() => scrollToSection('faq')}
+              className={`transition-colors duration-300 font-medium ${
+                isScrolled
+                  ? 'text-gray-700 hover:text-primary-purple'
+                  : 'text-white hover:text-primary-coral'
+              }`}
+            >
+              FAQ
+            </button>
+            <button
               onClick={() => scrollToSection('contact')}
               className={`transition-colors duration-300 font-medium ${
                 isScrolled
@@ -198,6 +208,12 @@ export default function Navigation() {
                 className="block w-full text-left text-gray-700 hover:text-primary-purple transition-colors font-medium py-2"
               >
                 Testimonios
+              </button>
+              <button
+                onClick={() => scrollToSection('faq')}
+                className="block w-full text-left text-gray-700 hover:text-primary-purple transition-colors font-medium py-2"
+              >
+                FAQ
               </button>
               <button
                 onClick={() => scrollToSection('contact')}

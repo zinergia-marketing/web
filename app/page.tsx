@@ -4,6 +4,7 @@ import Services from '@/components/Services'
 import Plans from '@/components/Plans'
 import Portfolio from '@/components/Portfolio'
 import Testimonials from '@/components/Testimonials'
+import FAQ from '@/components/FAQ'
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
@@ -17,6 +18,7 @@ export default function Home() {
       <Plans />
       <Portfolio />
       <Testimonials />
+      <FAQ />
       <ContactForm />
       <Footer />
       <WhatsAppButton />
