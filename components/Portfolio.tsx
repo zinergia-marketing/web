@@ -228,15 +228,6 @@ export default function Portfolio() {
                   objectFit="cover"
                   sizes="(max-width: 768px) 100vw, 800px"
                 />
-                {/* Fallback si no hay imagen */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white text-center">
-                    <div className="text-6xl mb-4">
-                      {selectedItem.category === 'Video Editing' ? '🎬' : selectedItem.category === 'Landing Page' ? '🚀' : '🎨'}
-                    </div>
-                    <p className="text-xl font-semibold">{selectedItem.title}</p>
-                  </div>
-                </div>
               </div>
 
               <div className="space-y-4">
