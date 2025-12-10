@@ -44,12 +44,12 @@ const portfolioItems = [
   },
   {
     id: 5,
-    title: 'B2B Corporation',
-    category: 'Sitio Corporativo',
-    description: 'Website corporativo con integración CRM',
-    result: '40% más conversiones',
-    image: '/images/portfolio/b2b-corporation.jpg', // Reemplaza con tu imagen
-    industry: 'B2B',
+    title: 'Kovak Boutique',
+    category: 'Edición de Video',
+    description: 'Estrategia de video marketing para boutique de moda. Creamos contenido visual dinámico que destaca las colecciones y tendencias de moda, generando videos atractivos que aumentan significativamente el engagement y la conexión con la audiencia objetivo en redes sociales.',
+    result: '250% crecimiento de engagement',
+    image: '/images/portfolio/imagen-portafolio-kovak.jpg',
+    industry: 'Moda',
   },
   {
     id: 6,
