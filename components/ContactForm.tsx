@@ -80,7 +80,7 @@ export default function ContactForm() {
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-b from-white to-primary-neutral/20"
+      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-primary-neutral/20"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -88,7 +88,7 @@ export default function ContactForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-10 lg:mb-12"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-primary-purple mb-4">
             Solicita tu Cotización Gratis

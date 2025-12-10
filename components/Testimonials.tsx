@@ -96,7 +96,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-20 bg-white"
+      className="py-12 sm:py-16 lg:py-20 bg-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -105,7 +105,7 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-primary-purple mb-4">
             Lo que dicen nuestros clientes

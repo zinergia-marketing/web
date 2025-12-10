@@ -117,7 +117,7 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="py-20 bg-gradient-to-b from-primary-neutral/30 to-white"
+      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-primary-neutral/30 to-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -126,7 +126,7 @@ export default function Portfolio() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-primary-purple mb-4">
             Mira cómo hemos escalado marcas
@@ -165,7 +165,7 @@ export default function Portfolio() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-center mt-12"
+          className="text-center mt-8 sm:mt-10 lg:mt-12"
         >
           <a
             href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573243463101'}?text=${encodeURIComponent('Hola, me gustaría solicitar una cotización para mi proyecto. Me interesa conocer más sobre los servicios de Zinergia.')}`}

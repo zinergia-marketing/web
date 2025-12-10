@@ -180,7 +180,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-20 bg-gradient-to-b from-white to-primary-neutral/30"
+      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-primary-neutral/30"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -189,7 +189,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-primary-purple mb-4">
             Servicios que transforman negocios

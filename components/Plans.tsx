@@ -93,12 +93,12 @@ function PlanCard({ plan, getWhatsAppUrl, index, isMobile = false }: PlanCardPro
       transition={{ duration: 0.6, delay: (index ?? 0) * 0.1 }}
       onMouseEnter={() => setHoveredId(plan.id)}
       onMouseLeave={() => setHoveredId(null)}
-      className="relative group w-full"
+      className={`relative group w-full ${plan.popular ? 'pt-8 sm:pt-10' : ''}`}
     >
       {/* Popular Badge */}
       {plan.popular && (
-        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
-          <span className="bg-gradient-to-r from-primary-coral to-primary-purple text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
+        <div className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 z-50">
+          <span className="bg-gradient-to-r from-primary-coral to-primary-purple text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-xl whitespace-nowrap">
             Más Popular
           </span>
         </div>
@@ -228,7 +228,7 @@ export default function Plans() {
   return (
     <section
       id="plans"
-      className="py-20 bg-gradient-to-b from-primary-neutral/30 to-white"
+      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-primary-neutral/30 to-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -237,7 +237,7 @@ export default function Plans() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-primary-purple mb-4">
             Planes Mensuales
@@ -249,7 +249,7 @@ export default function Plans() {
 
         {/* Plans - Carousel on mobile, Grid on desktop */}
         <div className="lg:hidden -mx-4 sm:-mx-6">
-          <div className="px-4 sm:px-6 pt-6 pb-2">
+          <div className="px-4 sm:px-6 pt-10 pb-2 overflow-visible">
             <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
               {plans.map((plan) => (
                 <PlanCard key={plan.id} plan={plan} getWhatsAppUrl={getWhatsAppUrl} isMobile={true} />
@@ -276,9 +276,9 @@ export default function Plans() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 text-center"
+          className="mt-8 sm:mt-10 lg:mt-12 text-center"
         >
-          <div className="bg-primary-neutral/20 rounded-2xl p-6 max-w-3xl mx-auto mb-8">
+          <div className="bg-primary-neutral/20 rounded-2xl p-4 sm:p-6 max-w-3xl mx-auto mb-6 sm:mb-8">
             <p className="text-gray-700 text-sm mb-2">
               <strong>Nota importante:</strong> Todos los planes incluyen 2 rondas de revisión por entregable. 
               Los presupuestos de pauta publicitaria se cobran aparte según tus objetivos. 
