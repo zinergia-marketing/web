@@ -45,8 +45,8 @@ const portfolioItems = [
   {
     id: 5,
     title: 'Kovak Boutique',
-    category: 'Edición de Video',
-    description: 'Estrategia de video marketing para boutique de moda. Creamos contenido visual dinámico que destaca las colecciones y tendencias de moda, generando videos atractivos que aumentan significativamente el engagement y la conexión con la audiencia objetivo en redes sociales.',
+    category: 'Edición de Video + Diseño',
+    description: 'Estrategia integral de video marketing y diseño gráfico para boutique de moda. Desarrollamos contenido visual dinámico que combina videos atractivos con diseño gráfico profesional, destacando las colecciones y tendencias de moda para generar un engagement significativo y una conexión sólida con la audiencia objetivo en redes sociales.',
     result: '250% crecimiento de engagement',
     image: '/images/portfolio/imagen-portafolio-kovak.jpg',
     industry: 'Moda',
