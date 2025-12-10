@@ -201,7 +201,7 @@ export default function Portfolio() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl max-w-2xl w-full p-8 max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-2xl max-w-2xl w-full p-8 max-h-[90dvh] overflow-y-auto"
             >
               <div className="flex justify-between items-start mb-6">
                 <div>

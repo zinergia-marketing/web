@@ -150,3 +150,4 @@ import OptimizedImage from '@/components/OptimizedImage'
 - Verifica el aspect ratio (16:9 para portfolio, 1:1 para testimonials)
 - Ajusta `objectFit` en el componente si es necesario
 
+

@@ -8,6 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      height: {
+        'screen': '100dvh', // Usa dvh en lugar de vh para mejor soporte móvil
+        'screen-fallback': '100vh', // Fallback para navegadores antiguos
+      },
+      minHeight: {
+        'screen': '100dvh', // Usa dvh en lugar de vh para mejor soporte móvil
+        'screen-fallback': '100vh', // Fallback para navegadores antiguos
+      },
+      maxHeight: {
+        'screen': '100dvh', // Usa dvh en lugar de vh para mejor soporte móvil
+        'screen-fallback': '100vh', // Fallback para navegadores antiguos
+      },
       colors: {
         primary: {
           purple: '#3b0b5b',

@@ -124,3 +124,4 @@ git push
 - Cada push a `main` despliega automáticamente a producción
 - Los pushes a otras ramas crean "previews" que puedes revisar antes de mergear
 
+
