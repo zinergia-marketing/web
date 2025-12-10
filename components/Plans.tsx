@@ -301,8 +301,8 @@ export default function Plans() {
             <div className="text-white">
               <div className="flex items-center justify-center gap-2 mb-2 sm:mb-3">
                 <span className="text-2xl sm:text-3xl lg:text-2xl">🎉</span>
-                <h3 className="text-lg sm:text-2xl lg:text-xl font-bold text-white">
-                  {DISCOUNT_PERCENTAGE}% de Descuento por Tiempo Limitado
+                <h3 className="text-lg sm:text-2xl lg:text-xl font-bold text-white uppercase">
+                  {DISCOUNT_PERCENTAGE}% DE DESCUENTO POR TIEMPO LIMITADO
                 </h3>
               </div>
               <p className="text-sm sm:text-base lg:text-sm text-white mb-4 sm:mb-5 lg:mb-4 font-medium">

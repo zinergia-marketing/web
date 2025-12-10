@@ -153,7 +153,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="pt-4 sm:pt-6 flex flex-wrap items-center justify-center gap-6 text-white/80 text-sm"
+            className="pt-4 sm:pt-6 lg:pt-8 flex flex-wrap items-center justify-center gap-6 text-white/80 text-sm"
           >
             <div className="flex items-center gap-2">
               <span className="text-2xl">✓</span>
