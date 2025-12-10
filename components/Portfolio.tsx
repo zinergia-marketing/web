@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-import Image from 'next/image'
+import OptimizedImage from './OptimizedImage'
 
 const portfolioItems = [
   {
@@ -11,7 +11,7 @@ const portfolioItems = [
     category: 'Video Editing',
     description: 'Campaña de video para fintech colombiana',
     result: 'Aumentó 150% conversión',
-    image: '/api/placeholder/600/400',
+    image: '/images/portfolio/tucolpagos.jpg', // Reemplaza con tu imagen
     industry: 'Fintech',
   },
   {
@@ -20,7 +20,7 @@ const portfolioItems = [
     category: 'Landing Page',
     description: 'Diseño y desarrollo de tienda online',
     result: '3x leads mensuales',
-    image: '/api/placeholder/600/400',
+    image: '/images/portfolio/ecommerce.jpg', // Reemplaza con tu imagen
     industry: 'E-commerce',
   },
   {
@@ -29,7 +29,7 @@ const portfolioItems = [
     category: 'Branding + Redes',
     description: 'Identidad visual y estrategia de redes sociales',
     result: '200% crecimiento en engagement',
-    image: '/api/placeholder/600/400',
+    image: '/images/portfolio/startup-tech.jpg', // Reemplaza con tu imagen
     industry: 'SaaS',
   },
   {
@@ -38,7 +38,7 @@ const portfolioItems = [
     category: 'Diseño Gráfico',
     description: 'Contenido visual para restaurante local',
     result: '5x seguidores en Instagram',
-    image: '/api/placeholder/600/400',
+    image: '/images/portfolio/local-business.jpg', // Reemplaza con tu imagen
     industry: 'Food & Beverage',
   },
   {
@@ -47,7 +47,7 @@ const portfolioItems = [
     category: 'Sitio Corporativo',
     description: 'Website corporativo con integración CRM',
     result: '40% más conversiones',
-    image: '/api/placeholder/600/400',
+    image: '/images/portfolio/b2b-corporation.jpg', // Reemplaza con tu imagen
     industry: 'B2B',
   },
   {
@@ -56,7 +56,7 @@ const portfolioItems = [
     category: 'Landing + Pautas',
     description: 'Landing page optimizada con campañas',
     result: 'ROAS 4:1 en primeros 30 días',
-    image: '/api/placeholder/600/400',
+    image: '/images/portfolio/saas-platform.jpg', // Reemplaza con tu imagen
     industry: 'SaaS',
   },
 ]
@@ -99,13 +99,23 @@ export default function Portfolio() {
               className="relative group cursor-pointer overflow-hidden rounded-xl"
               onClick={() => setSelectedItem(item)}
             >
-              {/* Image Placeholder */}
-              <div className="aspect-video bg-gradient-to-br from-primary-purple to-primary-coral flex items-center justify-center relative overflow-hidden">
+              {/* Image */}
+              <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-primary-purple to-primary-coral">
+                <OptimizedImage
+                  src={item.image}
+                  alt={`${item.title} - ${item.category}`}
+                  fill
+                  objectFit="cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
-                <div className="relative z-10 text-white text-center p-4">
-                  <div className="text-4xl mb-2">{item.category === 'Video Editing' ? '🎬' : item.category === 'Landing Page' ? '🚀' : '🎨'}</div>
-                  <h3 className="text-xl font-bold mb-1">{item.title}</h3>
-                  <p className="text-sm opacity-90">{item.category}</p>
+                {/* Fallback si no hay imagen */}
+                <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                  <div className="text-white text-center p-4">
+                    <div className="text-4xl mb-2">{item.category === 'Video Editing' ? '🎬' : item.category === 'Landing Page' ? '🚀' : '🎨'}</div>
+                    <h3 className="text-xl font-bold mb-1">{item.title}</h3>
+                    <p className="text-sm opacity-90">{item.category}</p>
+                  </div>
                 </div>
               </div>
 
@@ -179,12 +189,22 @@ export default function Portfolio() {
                 </button>
               </div>
 
-              <div className="aspect-video bg-gradient-to-br from-primary-purple to-primary-coral rounded-xl mb-6 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-6xl mb-4">
-                    {selectedItem.category === 'Video Editing' ? '🎬' : selectedItem.category === 'Landing Page' ? '🚀' : '🎨'}
+              <div className="aspect-video relative bg-gradient-to-br from-primary-purple to-primary-coral rounded-xl mb-6 overflow-hidden">
+                <OptimizedImage
+                  src={selectedItem.image}
+                  alt={`${selectedItem.title} - ${selectedItem.category}`}
+                  fill
+                  objectFit="cover"
+                  sizes="(max-width: 768px) 100vw, 800px"
+                />
+                {/* Fallback si no hay imagen */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-white text-center">
+                    <div className="text-6xl mb-4">
+                      {selectedItem.category === 'Video Editing' ? '🎬' : selectedItem.category === 'Landing Page' ? '🚀' : '🎨'}
+                    </div>
+                    <p className="text-xl font-semibold">{selectedItem.title}</p>
                   </div>
-                  <p className="text-xl font-semibold">{selectedItem.title}</p>
                 </div>
               </div>
 

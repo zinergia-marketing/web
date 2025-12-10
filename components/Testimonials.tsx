@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import OptimizedImage from './OptimizedImage'
 
 const testimonials = [
   {
@@ -8,7 +9,7 @@ const testimonials = [
     name: 'María González',
     company: 'Tucolpagos',
     role: 'CEO',
-    image: '/api/placeholder/100/100',
+    image: '/images/testimonials/maria-gonzalez.jpg', // Reemplaza con foto del cliente
     quote: 'Zinergia transformó nuestra presencia digital. En 30 días vimos un aumento del 150% en conversiones. Su equipo es profesional y los resultados hablan por sí solos.',
     result: '150% aumento en conversiones',
   },
@@ -17,7 +18,7 @@ const testimonials = [
     name: 'Carlos Ramírez',
     company: 'Ecommerce Store',
     role: 'Fundador',
-    image: '/api/placeholder/100/100',
+    image: '/images/testimonials/carlos-ramirez.jpg', // Reemplaza con foto del cliente
     quote: 'El diseño de nuestra landing page superó todas las expectativas. Pasamos de 50 leads mensuales a más de 150. La inversión se pagó sola en el primer mes.',
     result: '3x leads mensuales',
   },
@@ -26,7 +27,7 @@ const testimonials = [
     name: 'Ana Martínez',
     company: 'Startup Tech',
     role: 'CMO',
-    image: '/api/placeholder/100/100',
+    image: '/images/testimonials/ana-martinez.jpg', // Reemplaza con foto del cliente
     quote: 'La estrategia de redes sociales que desarrollaron nos ayudó a construir una comunidad real. El engagement creció 200% y ahora tenemos una marca reconocida.',
     result: '200% crecimiento en engagement',
   },
@@ -83,8 +84,18 @@ export default function Testimonials() {
 
               {/* Author */}
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white text-xl font-bold">
-                  {testimonial.name.charAt(0)}
+                <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 bg-gradient-primary">
+                  <OptimizedImage
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    fill
+                    objectFit="cover"
+                    sizes="64px"
+                  />
+                  {/* Fallback inicial */}
+                  <div className="absolute inset-0 bg-gradient-primary flex items-center justify-center text-white text-xl font-bold">
+                    {testimonial.name.charAt(0)}
+                  </div>
                 </div>
                 <div>
                   <h4 className="font-bold text-primary-purple">
