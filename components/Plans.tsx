@@ -103,7 +103,7 @@ function PlanCard({ plan, getWhatsAppUrl, index, isMobile = false }: PlanCardPro
       )}
 
       <div
-        className={`bg-white rounded-2xl ${isMobile ? 'p-6' : 'p-8'} shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col border-2 ${
+        className={`bg-white rounded-2xl ${isMobile ? 'p-5' : 'p-8'} shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col border-2 ${
           plan.popular 
             ? 'border-primary-coral' 
             : 'border-transparent'
@@ -213,12 +213,14 @@ export default function Plans() {
         </motion.div>
 
         {/* Plans - Carousel on mobile, Grid on desktop */}
-        <div className="lg:hidden">
-          <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
-            {plans.map((plan) => (
-              <PlanCard key={plan.id} plan={plan} getWhatsAppUrl={getWhatsAppUrl} isMobile={true} />
-            ))}
-          </Carousel>
+        <div className="lg:hidden -mx-4 sm:-mx-6">
+          <div className="px-4 sm:px-6">
+            <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
+              {plans.map((plan) => (
+                <PlanCard key={plan.id} plan={plan} getWhatsAppUrl={getWhatsAppUrl} isMobile={true} />
+              ))}
+            </Carousel>
+          </div>
         </div>
 
         {/* Desktop Grid */}

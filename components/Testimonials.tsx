@@ -47,7 +47,7 @@ function TestimonialCard({ testimonial, index, isMobile = false }: TestimonialCa
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: (index ?? 0) * 0.1 }}
-      className={`bg-gradient-to-br from-white to-primary-neutral/20 rounded-2xl ${isMobile ? 'p-6' : 'p-8'} shadow-lg hover:shadow-xl transition-shadow duration-300 w-full`}
+      className={`bg-gradient-to-br from-white to-primary-neutral/20 rounded-2xl ${isMobile ? 'p-5' : 'p-8'} shadow-lg hover:shadow-xl transition-shadow duration-300 w-full`}
     >
       {/* Quote Icon */}
       <div className={`${isMobile ? 'text-3xl mb-3' : 'text-4xl mb-4'} text-primary-coral`}>&ldquo;</div>
@@ -116,12 +116,14 @@ export default function Testimonials() {
         </motion.div>
 
         {/* Testimonials - Carousel on mobile, Grid on desktop */}
-        <div className="md:hidden">
-          <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
-            {testimonials.map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} isMobile={true} />
-            ))}
-          </Carousel>
+        <div className="md:hidden -mx-4 sm:-mx-6">
+          <div className="px-4 sm:px-6">
+            <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
+              {testimonials.map((testimonial) => (
+                <TestimonialCard key={testimonial.id} testimonial={testimonial} isMobile={true} />
+              ))}
+            </Carousel>
+          </div>
         </div>
 
         {/* Desktop Grid */}

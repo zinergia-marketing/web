@@ -105,7 +105,7 @@ export default function Carousel({
     >
       {/* Carousel Container */}
       <div
-        className="overflow-hidden -mx-4"
+        className="overflow-hidden w-full"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -119,7 +119,7 @@ export default function Carousel({
           {children.map((child, index) => (
             <div
               key={index}
-              className="min-w-full flex-shrink-0 px-4"
+              className="min-w-full flex-shrink-0 w-full"
             >
               {child}
             </div>

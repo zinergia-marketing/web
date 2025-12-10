@@ -106,7 +106,7 @@ function ServiceCard({ service, getWhatsAppUrl, index, isMobile = false }: Servi
       className="relative group w-full"
     >
       <div
-        className={`bg-white rounded-2xl ${isMobile ? 'p-6' : 'p-8'} shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col ${
+        className={`bg-white rounded-2xl ${isMobile ? 'p-5' : 'p-8'} shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col ${
           hoveredId === service.id && !isMobile ? 'transform scale-105' : ''
         }`}
       >
@@ -199,12 +199,14 @@ export default function Services() {
         </motion.div>
 
         {/* Services - Carousel on mobile, Grid on desktop */}
-        <div className="md:hidden">
-          <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
-            {services.map((service) => (
-              <ServiceCard key={service.id} service={service} getWhatsAppUrl={getWhatsAppUrl} isMobile={true} />
-            ))}
-          </Carousel>
+        <div className="md:hidden -mx-4 sm:-mx-6">
+          <div className="px-4 sm:px-6">
+            <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
+              {services.map((service) => (
+                <ServiceCard key={service.id} service={service} getWhatsAppUrl={getWhatsAppUrl} isMobile={true} />
+              ))}
+            </Carousel>
+          </div>
         </div>
 
         {/* Desktop Grid */}
