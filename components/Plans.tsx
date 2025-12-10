@@ -91,12 +91,12 @@ function PlanCard({ plan, getWhatsAppUrl, index, isMobile = false }: PlanCardPro
       transition={{ duration: 0.6, delay: (index ?? 0) * 0.1 }}
       onMouseEnter={() => setHoveredId(plan.id)}
       onMouseLeave={() => setHoveredId(null)}
-      className={`relative group w-full ${plan.popular && isMobile ? 'pt-6' : ''}`}
+      className={`relative group w-full ${plan.popular && isMobile ? 'pt-8' : ''}`}
     >
       {/* Popular Badge */}
       {plan.popular && (
-        <div className={`absolute ${isMobile ? '-top-2' : '-top-4'} left-1/2 transform -translate-x-1/2 z-10`}>
-          <span className="bg-gradient-to-r from-primary-coral to-primary-purple text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
+        <div className={`absolute ${isMobile ? 'top-0' : '-top-4'} left-1/2 transform -translate-x-1/2 z-20`}>
+          <span className="bg-gradient-to-r from-primary-coral to-primary-purple text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
             Más Popular
           </span>
         </div>
@@ -214,7 +214,7 @@ export default function Plans() {
 
         {/* Plans - Carousel on mobile, Grid on desktop */}
         <div className="lg:hidden -mx-4 sm:-mx-6">
-          <div className="px-4 sm:px-6 pt-6">
+          <div className="px-4 sm:px-6 pt-8 pb-2">
             <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
               {plans.map((plan) => (
                 <PlanCard key={plan.id} plan={plan} getWhatsAppUrl={getWhatsAppUrl} isMobile={true} />
