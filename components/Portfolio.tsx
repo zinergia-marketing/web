@@ -9,10 +9,10 @@ const portfolioItems = [
   {
     id: 1,
     title: 'Tucolpagos',
-    category: 'Video Editing',
-    description: 'Campaña de video para fintech colombiana',
-    result: 'Aumentó 150% conversión',
-    image: '/images/portfolio/tucolpagos.jpg', // Reemplaza con tu imagen
+    category: 'Branding + Página Web',
+    description: 'Desarrollo de identidad visual completa y página web para ecosistema de servicios financieros. Creamos un branding moderno que refleja agilidad y seguridad, con presencia digital integrada en web e Instagram que posiciona a Tu Colpagos como corresponsal aliado para franquicias.',
+    result: '200% crecimiento de engagement',
+    image: '/images/portfolio/imagen-portafolio-tucolpagos.jpg',
     industry: 'Fintech',
   },
   {
