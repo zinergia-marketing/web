@@ -7,12 +7,12 @@ import Carousel from './Carousel'
 const testimonials = [
   {
     id: 1,
-    name: 'María González',
+    name: 'Joan Ensuncho',
     company: 'Tucolpagos',
     role: 'CEO',
-    image: '/images/testimonials/maria-gonzalez.jpg', // Reemplaza con foto del cliente
-    quote: 'Zinergia transformó nuestra presencia digital. En 30 días vimos un aumento del 150% en conversiones. Su equipo es profesional y los resultados hablan por sí solos.',
-    result: '150% aumento en conversiones',
+    image: '/images/testimonials/ceo-tucolpagos.jpg',
+    quote: 'Zinergia entendió muy bien lo que necesitábamos como fintech y transformó TuColpagos en una marca moderna y confiable. Gracias al nuevo branding y la página web, hoy comunicamos mejor nuestra propuesta a franquiciados y emprendedores en Colombia.',
+    result: '200% crecimiento de engagement',
   },
   {
     id: 2,
