@@ -25,12 +25,12 @@ const testimonials = [
   },
   {
     id: 3,
-    name: 'Ana Martínez',
-    company: 'Startup Tech',
-    role: 'CMO',
-    image: '/images/testimonials/ana-martinez.jpg', // Reemplaza con foto del cliente
-    quote: 'La estrategia de redes sociales que desarrollaron nos ayudó a construir una comunidad real. El engagement creció 200% y ahora tenemos una marca reconocida.',
-    result: '200% crecimiento en engagement',
+    name: 'Jairo Corena',
+    company: 'Tecnomas Colombia',
+    role: 'CEO',
+    image: '/images/testimonials/ceo-tecnomas.jpg',
+    quote: 'Tener una estrategia unificada para redes sociales y página web ha sido un punto de inflexión para Tecnomas. Hoy contamos con una presencia digital coherente que refuerza nuestra marca, genera más engagement y convierte mejor el tráfico en clientes reales',
+    result: '200% crecimiento de engagement',
   },
 ]
 
