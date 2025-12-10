@@ -16,12 +16,12 @@ const testimonials = [
   },
   {
     id: 2,
-    name: 'Carlos Ramírez',
-    company: 'Ecommerce Store',
-    role: 'Fundador',
-    image: '/images/testimonials/carlos-ramirez.jpg', // Reemplaza con foto del cliente
-    quote: 'El diseño de nuestra landing page superó todas las expectativas. Pasamos de 50 leads mensuales a más de 150. La inversión se pagó sola en el primer mes.',
-    result: '3x leads mensuales',
+    name: 'Ronald Morales',
+    company: 'La Guaca Boutique',
+    role: 'Cofundador',
+    image: '/images/testimonials/fundador-laguaca.jpg',
+    quote: 'Trabajar con Zinergia ha sido clave para escalar la presencia digital de La Guaca. Su estrategia de video marketing conecta de forma auténtica con nuestro público en redes sociales y ya vemos el resultado en mayor interacción y más ventas en la boutique',
+    result: 'Aumentó 150% conversión',
   },
   {
     id: 3,
