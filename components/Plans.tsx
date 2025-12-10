@@ -7,10 +7,9 @@ import Carousel from './Carousel'
 const plans = [
   {
     id: 1,
-    name: 'Spark',
+    name: 'Plan Básico',
     subtitle: 'Inicio Digital',
-    price: 'Desde $450k',
-    priceFull: '450.000',
+    price: 500000,
     benefit: 'Construye tu presencia digital y genera tus primeros leads de forma profesional',
     idealFor: 'Emprendedores y microempresas que inician su presencia digital y necesitan contenido profesional sin una inversión alta',
     color: 'from-primary-purple to-primary-coral',
@@ -28,10 +27,9 @@ const plans = [
   },
   {
     id: 2,
-    name: 'Momentum',
+    name: 'Plan Estándar',
     subtitle: 'Crecimiento Acelerado',
-    price: 'Desde $1.200k',
-    priceFull: '1.200.000',
+    price: 1200000,
     benefit: 'Acelera tu crecimiento con contenido estratégico y pautas optimizadas que generan ventas constantes',
     idealFor: 'PyMEs en crecimiento que buscan escalar ventas con marketing digital estructurado y resultados medibles',
     color: 'from-primary-coral to-primary-purple',
@@ -50,10 +48,9 @@ const plans = [
   },
   {
     id: 3,
-    name: 'Quantum',
+    name: 'Plan Avanzado',
     subtitle: 'Escalamiento Premium',
-    price: 'Desde $2.500k',
-    priceFull: '2.500.000',
+    price: 2500000,
     benefit: 'Escala agresivamente con una estrategia integral que maximiza conversiones y ROI',
     idealFor: 'Empresas que buscan escalar resultados, maximizar ROI y necesitan una estrategia integral con soporte estratégico continuo',
     color: 'from-primary-purple to-primary-coral',
@@ -91,11 +88,11 @@ function PlanCard({ plan, getWhatsAppUrl, index, isMobile = false }: PlanCardPro
       transition={{ duration: 0.6, delay: (index ?? 0) * 0.1 }}
       onMouseEnter={() => setHoveredId(plan.id)}
       onMouseLeave={() => setHoveredId(null)}
-      className={`relative group w-full ${plan.popular && isMobile ? 'pt-8' : ''}`}
+      className="relative group w-full"
     >
       {/* Popular Badge */}
       {plan.popular && (
-        <div className={`absolute ${isMobile ? 'top-0' : '-top-4'} left-1/2 transform -translate-x-1/2 z-20`}>
+        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
           <span className="bg-gradient-to-r from-primary-coral to-primary-purple text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
             Más Popular
           </span>
@@ -129,10 +126,11 @@ function PlanCard({ plan, getWhatsAppUrl, index, isMobile = false }: PlanCardPro
         {/* Price */}
         <div className={`${isMobile ? 'mb-4' : 'mb-6'} text-center`}>
           <span className={`${isMobile ? 'text-3xl' : 'text-4xl'} font-bold text-primary-purple`}>
-            {plan.price}
+            ${plan.price.toLocaleString('es-CO')}
           </span>
+          <span className="text-gray-600 text-sm ml-1 font-normal">pesos</span>
           <span className="text-gray-500 text-sm block mt-1">
-            /mes
+            al mes
           </span>
         </div>
 
@@ -214,7 +212,7 @@ export default function Plans() {
 
         {/* Plans - Carousel on mobile, Grid on desktop */}
         <div className="lg:hidden -mx-4 sm:-mx-6">
-          <div className="px-4 sm:px-6 pt-8 pb-2">
+          <div className="px-4 sm:px-6 pt-6 pb-2">
             <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
               {plans.map((plan) => (
                 <PlanCard key={plan.id} plan={plan} getWhatsAppUrl={getWhatsAppUrl} isMobile={true} />
@@ -224,7 +222,7 @@ export default function Plans() {
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-8">
+        <div className="hidden lg:grid lg:grid-cols-3 gap-8 items-start">
           {plans.map((plan, index) => (
             <PlanCard
               key={plan.id}
