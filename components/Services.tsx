@@ -80,7 +80,7 @@ const services = [
       'Plan de acción',
       'Seguimiento continuo',
     ],
-    price: 200000,
+    price: 100000,
     color: 'from-primary-coral to-primary-purple',
   },
 ]
