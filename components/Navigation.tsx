@@ -74,6 +74,16 @@ export default function Navigation() {
               Servicios
             </button>
             <button
+              onClick={() => scrollToSection('plans')}
+              className={`transition-colors duration-300 font-medium ${
+                isScrolled
+                  ? 'text-gray-700 hover:text-primary-purple'
+                  : 'text-white hover:text-primary-coral'
+              }`}
+            >
+              Planes Mensuales
+            </button>
+            <button
               onClick={() => scrollToSection('portfolio')}
               className={`transition-colors duration-300 font-medium ${
                 isScrolled
@@ -170,6 +180,12 @@ export default function Navigation() {
                 className="block w-full text-left text-gray-700 hover:text-primary-purple transition-colors font-medium py-2"
               >
                 Servicios
+              </button>
+              <button
+                onClick={() => scrollToSection('plans')}
+                className="block w-full text-left text-gray-700 hover:text-primary-purple transition-colors font-medium py-2"
+              >
+                Planes Mensuales
               </button>
               <button
                 onClick={() => scrollToSection('portfolio')}
