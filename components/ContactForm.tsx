@@ -9,6 +9,10 @@ import { z } from 'zod'
 const contactSchema = z.object({
   name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
   email: z.string().email('Email inválido'),
+  phone: z.string().optional().refine(
+    (val) => !val || /^(\+57|57)?[1-9]\d{9}$/.test(val.replace(/\s/g, '')),
+    'Formato de teléfono inválido. Ejemplo: +57 300 1234567 o 3001234567'
+  ),
   company: z.string().optional(),
   service: z.string().min(1, 'Selecciona un servicio'),
   budget: z.string().min(1, 'Selecciona un rango de presupuesto'),
@@ -142,6 +146,26 @@ export default function ContactForm() {
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
                 )}
+              </div>
+
+              {/* Phone */}
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  Teléfono (opcional)
+                </label>
+                <input
+                  {...register('phone')}
+                  type="tel"
+                  id="phone"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-purple focus:border-transparent"
+                  placeholder="+57 300 1234567 o 3001234567"
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
+                )}
+                <p className="text-gray-500 text-xs mt-1">
+                  Nos ayudará a contactarte más rápido si lo necesitas
+                </p>
               </div>
 
               {/* Company */}

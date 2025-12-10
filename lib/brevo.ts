@@ -14,6 +14,7 @@ const brevoApi = axios.create({
 export interface ContactData {
   email: string
   name: string
+  phone?: string
   company?: string
   service?: string
   budget?: string
@@ -34,6 +35,7 @@ export async function addContactToBrevo(data: ContactData) {
       attributes: {
         FIRSTNAME: data.name.split(' ')[0] || data.name,
         LASTNAME: data.name.split(' ').slice(1).join(' ') || '',
+        SMS: data.phone || '',
         COMPANY: data.company || '',
         SERVICE: data.service || '',
         BUDGET: data.budget || '',
@@ -52,7 +54,7 @@ export async function addContactToBrevo(data: ContactData) {
         subject: 'Gracias por contactar a Zinergia',
         htmlContent: `
           <h2>Hola ${data.name},</h2>
-          <p>Gracias por contactarnos. Hemos recibido tu solicitud y nos pondremos en contacto contigo en menos de 24 horas.</p>
+          <p>Gracias por contactarnos. Hemos recibido tu solicitud y nos pondremos en contacto contigo en menos de 15 minutos.</p>
           <p>Mientras tanto, puedes contactarnos directamente por WhatsApp si tienes alguna pregunta urgente.</p>
           <p>Saludos,<br>El equipo de Zinergia</p>
         `,
