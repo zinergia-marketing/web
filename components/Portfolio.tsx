@@ -1,0 +1,233 @@
+'use client'
+
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+import Image from 'next/image'
+
+const portfolioItems = [
+  {
+    id: 1,
+    title: 'Tucolpagos',
+    category: 'Video Editing',
+    description: 'Campaña de video para fintech colombiana',
+    result: 'Aumentó 150% conversión',
+    image: '/api/placeholder/600/400',
+    industry: 'Fintech',
+  },
+  {
+    id: 2,
+    title: 'Ecommerce Store',
+    category: 'Landing Page',
+    description: 'Diseño y desarrollo de tienda online',
+    result: '3x leads mensuales',
+    image: '/api/placeholder/600/400',
+    industry: 'E-commerce',
+  },
+  {
+    id: 3,
+    title: 'Startup Tech',
+    category: 'Branding + Redes',
+    description: 'Identidad visual y estrategia de redes sociales',
+    result: '200% crecimiento en engagement',
+    image: '/api/placeholder/600/400',
+    industry: 'SaaS',
+  },
+  {
+    id: 4,
+    title: 'Local Business',
+    category: 'Diseño Gráfico',
+    description: 'Contenido visual para restaurante local',
+    result: '5x seguidores en Instagram',
+    image: '/api/placeholder/600/400',
+    industry: 'Food & Beverage',
+  },
+  {
+    id: 5,
+    title: 'B2B Corporation',
+    category: 'Sitio Corporativo',
+    description: 'Website corporativo con integración CRM',
+    result: '40% más conversiones',
+    image: '/api/placeholder/600/400',
+    industry: 'B2B',
+  },
+  {
+    id: 6,
+    title: 'SaaS Platform',
+    category: 'Landing + Pautas',
+    description: 'Landing page optimizada con campañas',
+    result: 'ROAS 4:1 en primeros 30 días',
+    image: '/api/placeholder/600/400',
+    industry: 'SaaS',
+  },
+]
+
+export default function Portfolio() {
+  const [selectedItem, setSelectedItem] = useState<typeof portfolioItems[0] | null>(null)
+
+  return (
+    <section
+      id="portfolio"
+      className="py-20 bg-gradient-to-b from-primary-neutral/30 to-white"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl sm:text-5xl font-bold text-primary-purple mb-4">
+            Mira cómo hemos escalado marcas
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Casos de éxito que demuestran resultados reales
+          </p>
+        </motion.div>
+
+        {/* Portfolio Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {portfolioItems.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ scale: 1.02 }}
+              className="relative group cursor-pointer overflow-hidden rounded-xl"
+              onClick={() => setSelectedItem(item)}
+            >
+              {/* Image Placeholder */}
+              <div className="aspect-video bg-gradient-to-br from-primary-purple to-primary-coral flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+                <div className="relative z-10 text-white text-center p-4">
+                  <div className="text-4xl mb-2">{item.category === 'Video Editing' ? '🎬' : item.category === 'Landing Page' ? '🚀' : '🎨'}</div>
+                  <h3 className="text-xl font-bold mb-1">{item.title}</h3>
+                  <p className="text-sm opacity-90">{item.category}</p>
+                </div>
+              </div>
+
+              {/* Overlay on Hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-purple/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div className="text-white">
+                  <p className="text-sm font-medium mb-2">{item.industry}</p>
+                  <p className="text-lg font-bold">{item.result}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="text-center mt-12"
+        >
+          <a
+            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573243463101'}?text=${encodeURIComponent('Hola, me gustaría solicitar una cotización para mi proyecto. Me interesa conocer más sobre los servicios de Zinergia.')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              if (typeof window !== 'undefined' && window.gtag) {
+                window.gtag('event', 'click', {
+                  event_category: 'CTA',
+                  event_label: 'Solicitar Cotización Portfolio',
+                })
+              }
+            }}
+            className="inline-block px-8 py-4 bg-gradient-primary text-white rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+          >
+            Solicitar cotización
+          </a>
+        </motion.div>
+      </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selectedItem && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedItem(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white rounded-2xl max-w-2xl w-full p-8 max-h-[90vh] overflow-y-auto"
+            >
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <h3 className="text-3xl font-bold text-primary-purple mb-2">
+                    {selectedItem.title}
+                  </h3>
+                  <p className="text-gray-600">{selectedItem.category} • {selectedItem.industry}</p>
+                </div>
+                <button
+                  onClick={() => setSelectedItem(null)}
+                  className="text-gray-400 hover:text-gray-600 text-2xl"
+                >
+                  ×
+                </button>
+              </div>
+
+              <div className="aspect-video bg-gradient-to-br from-primary-purple to-primary-coral rounded-xl mb-6 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-6xl mb-4">
+                    {selectedItem.category === 'Video Editing' ? '🎬' : selectedItem.category === 'Landing Page' ? '🚀' : '🎨'}
+                  </div>
+                  <p className="text-xl font-semibold">{selectedItem.title}</p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-bold text-lg text-primary-purple mb-2">
+                    Descripción del Proyecto
+                  </h4>
+                  <p className="text-gray-700">{selectedItem.description}</p>
+                </div>
+
+                <div>
+                  <h4 className="font-bold text-lg text-primary-purple mb-2">
+                    Resultado
+                  </h4>
+                  <p className="text-2xl font-bold text-primary-coral">
+                    {selectedItem.result}
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573243463101'}?text=${encodeURIComponent(`Hola, vi el caso de éxito de ${selectedItem.title} y me gustaría solicitar una cotización para lograr resultados similares.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  setSelectedItem(null)
+                  if (typeof window !== 'undefined' && window.gtag) {
+                    window.gtag('event', 'click', {
+                      event_category: 'Portfolio',
+                      event_label: selectedItem.title,
+                    })
+                  }
+                }}
+                className="mt-6 w-full py-3 bg-gradient-primary text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 text-center block"
+              >
+                Solicitar cotización
+              </a>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  )
+}
+
