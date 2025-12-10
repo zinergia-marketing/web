@@ -93,7 +93,11 @@ function PortfolioCard({ item, onSelect, index, isMobile = false }: PortfolioCar
         {/* Fallback si no hay imagen */}
         <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
           <div className="text-white text-center p-4">
-            <div className="text-4xl mb-2">{item.category === 'Video Editing' ? '🎬' : item.category === 'Landing Page' ? '🚀' : '🎨'}</div>
+            <div className="text-4xl mb-2">
+              {item.category === 'Video Editing' || item.category.includes('Edición de Video') ? '📹' : 
+               item.category === 'Landing Page' ? '🚀' : 
+               item.category.includes('Branding') ? '🎨' : '🎨'}
+            </div>
             <h3 className="text-xl font-bold mb-1">{item.title}</h3>
             <p className="text-sm opacity-90">{item.category}</p>
           </div>
