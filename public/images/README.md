@@ -151,3 +151,4 @@ import OptimizedImage from '@/components/OptimizedImage'
 - Ajusta `objectFit` en el componente si es necesario
 
 
+
