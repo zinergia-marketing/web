@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import OptimizedImage from './OptimizedImage'
+import Carousel from './Carousel'
 
 const testimonials = [
   {
@@ -33,6 +34,63 @@ const testimonials = [
   },
 ]
 
+interface TestimonialCardProps {
+  testimonial: typeof testimonials[0]
+  index?: number
+}
+
+function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: (index ?? 0) * 0.1 }}
+      className="bg-gradient-to-br from-white to-primary-neutral/20 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+    >
+      {/* Quote Icon */}
+      <div className="text-4xl text-primary-coral mb-4">&ldquo;</div>
+
+      {/* Quote */}
+      <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+        {testimonial.quote}
+      </p>
+
+      {/* Result Badge */}
+      <div className="mb-6">
+        <span className="inline-block px-4 py-2 bg-gradient-primary text-white rounded-full text-sm font-semibold">
+          {testimonial.result}
+        </span>
+      </div>
+
+      {/* Author */}
+      <div className="flex items-center gap-4">
+        <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 bg-gradient-primary">
+          <OptimizedImage
+            src={testimonial.image}
+            alt={testimonial.name}
+            fill
+            objectFit="cover"
+            sizes="64px"
+          />
+          {/* Fallback inicial */}
+          <div className="absolute inset-0 bg-gradient-primary flex items-center justify-center text-white text-xl font-bold">
+            {testimonial.name.charAt(0)}
+          </div>
+        </div>
+        <div>
+          <h4 className="font-bold text-primary-purple">
+            {testimonial.name}
+          </h4>
+          <p className="text-gray-600 text-sm">
+            {testimonial.role}, {testimonial.company}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
 export default function Testimonials() {
   return (
     <section
@@ -56,57 +114,21 @@ export default function Testimonials() {
           </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Testimonials - Carousel on mobile, Grid on desktop */}
+        <div className="md:hidden">
+          <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className="px-2">
+                <TestimonialCard testimonial={testimonial} />
+              </div>
+            ))}
+          </Carousel>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gradient-to-br from-white to-primary-neutral/20 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              {/* Quote Icon */}
-              <div className="text-4xl text-primary-coral mb-4">&ldquo;</div>
-
-              {/* Quote */}
-              <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                {testimonial.quote}
-              </p>
-
-              {/* Result Badge */}
-              <div className="mb-6">
-                <span className="inline-block px-4 py-2 bg-gradient-primary text-white rounded-full text-sm font-semibold">
-                  {testimonial.result}
-                </span>
-              </div>
-
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 bg-gradient-primary">
-                  <OptimizedImage
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    fill
-                    objectFit="cover"
-                    sizes="64px"
-                  />
-                  {/* Fallback inicial */}
-                  <div className="absolute inset-0 bg-gradient-primary flex items-center justify-center text-white text-xl font-bold">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                </div>
-                <div>
-                  <h4 className="font-bold text-primary-purple">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-gray-600 text-sm">
-                    {testimonial.role}, {testimonial.company}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+            <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
           ))}
         </div>
       </div>

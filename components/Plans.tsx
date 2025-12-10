@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Carousel from './Carousel'
 
 const plans = [
   {
@@ -18,7 +19,7 @@ const plans = [
       '12 piezas de diseño gráfico al mes',
       '4 reels o videos cortos editados',
       'Manejo de 2 redes sociales (Instagram y Facebook)',
-      '15 publicaciones al mes (5 por semana)',
+      '12 publicaciones al mes (3 por semana)',
       'Community management básico',
       '1 hora de asesoría estratégica mensual',
       'Reporte mensual de métricas básicas',
@@ -39,7 +40,7 @@ const plans = [
       '20 piezas de diseño gráfico al mes',
       '8 reels o videos cortos editados',
       'Manejo de 3 redes sociales (Instagram, Facebook, TikTok)',
-      '24 publicaciones al mes (6 por semana)',
+      '16 publicaciones al mes (4 por semana)',
       'Community management completo',
       'Manejo de pautas publicitarias (presupuesto aparte)',
       '2 horas de asesoría estratégica mensual',
@@ -61,7 +62,7 @@ const plans = [
       '30+ piezas de diseño gráfico al mes',
       '12 reels o videos cortos editados',
       'Manejo completo de 4 redes sociales',
-      '30+ publicaciones al mes (diarias optimizadas)',
+      '24 publicaciones al mes (6 por semana)',
       'Community management premium (24/7)',
       'Manejo avanzado de pautas multi-plataforma',
       'Landing Page incluida (nueva o mejoras mensuales)',
@@ -72,9 +73,115 @@ const plans = [
   },
 ]
 
-export default function Plans() {
+interface PlanCardProps {
+  plan: typeof plans[0]
+  getWhatsAppUrl: (planName: string, planSubtitle: string) => string
+  index?: number
+}
+
+function PlanCard({ plan, getWhatsAppUrl, index }: PlanCardProps) {
   const [hoveredId, setHoveredId] = useState<number | null>(null)
 
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: (index ?? 0) * 0.1 }}
+      onMouseEnter={() => setHoveredId(plan.id)}
+      onMouseLeave={() => setHoveredId(null)}
+      className="relative group"
+    >
+      {/* Popular Badge */}
+      {plan.popular && (
+        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+          <span className="bg-gradient-to-r from-primary-coral to-primary-purple text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+            Más Popular
+          </span>
+        </div>
+      )}
+
+      <div
+        className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col border-2 ${
+          plan.popular 
+            ? 'border-primary-coral' 
+            : 'border-transparent'
+        } ${
+          hoveredId === plan.id ? 'transform scale-105' : ''
+        }`}
+      >
+        {/* Icon & Name */}
+        <div className="mb-6 text-center">
+          <div
+            className={`w-16 h-16 rounded-xl bg-gradient-to-br ${plan.color} flex items-center justify-center text-3xl shadow-lg mx-auto mb-4`}
+          >
+            {plan.icon}
+          </div>
+          <h3 className="text-3xl font-bold text-primary-purple mb-1">
+            {plan.name}
+          </h3>
+          <p className="text-gray-500 text-sm font-medium">
+            {plan.subtitle}
+          </p>
+        </div>
+
+        {/* Price */}
+        <div className="mb-6 text-center">
+          <span className="text-4xl font-bold text-primary-purple">
+            {plan.price}
+          </span>
+          <span className="text-gray-500 text-sm block mt-1">
+            /mes
+          </span>
+        </div>
+
+        {/* Benefit */}
+        <p className="text-gray-700 mb-6 text-center font-medium">
+          {plan.benefit}
+        </p>
+
+        {/* Features */}
+        <ul className="space-y-3 mb-8 flex-grow">
+          {plan.features.map((feature, idx) => (
+            <li key={idx} className="flex items-start text-gray-700 text-sm">
+              <span className="text-primary-coral mr-2 mt-1 flex-shrink-0">✓</span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* Ideal For */}
+        <div className="mb-6 p-4 bg-primary-neutral/20 rounded-lg">
+          <p className="text-xs text-gray-600 italic text-center">
+            {plan.idealFor}
+          </p>
+        </div>
+
+        {/* CTA */}
+        <a
+          href={getWhatsAppUrl(plan.name, plan.subtitle)}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => {
+            if (typeof window !== 'undefined' && window.gtag) {
+              window.gtag('event', 'click', {
+                event_category: 'Plan',
+                event_label: `${plan.name} - ${plan.subtitle}`,
+              })
+            }
+          }}
+          className={`w-full py-4 rounded-full font-bold text-white bg-gradient-to-r ${plan.color} hover:shadow-lg transition-all duration-300 hover:scale-105 text-center block ${
+            plan.popular ? 'text-lg' : ''
+          }`}
+        >
+          {plan.popular ? 'Contratar Plan Popular' : 'Solicitar este plan'}
+        </a>
+      </div>
+    </motion.div>
+  )
+}
+
+export default function Plans() {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573243463101'
   
   const getWhatsAppUrl = (planName: string, planSubtitle: string) => {
@@ -104,105 +211,26 @@ export default function Plans() {
           </p>
         </motion.div>
 
-        {/* Plans Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {plans.map((plan, index) => (
-            <motion.div
-              key={plan.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              onMouseEnter={() => setHoveredId(plan.id)}
-              onMouseLeave={() => setHoveredId(null)}
-              className="relative group"
-            >
-              {/* Popular Badge */}
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <span className="bg-gradient-to-r from-primary-coral to-primary-purple text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
-                    Más Popular
-                  </span>
-                </div>
-              )}
-
-              <div
-                className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col border-2 ${
-                  plan.popular 
-                    ? 'border-primary-coral' 
-                    : 'border-transparent'
-                } ${
-                  hoveredId === plan.id ? 'transform scale-105' : ''
-                }`}
-              >
-                {/* Icon & Name */}
-                <div className="mb-6 text-center">
-                  <div
-                    className={`w-16 h-16 rounded-xl bg-gradient-to-br ${plan.color} flex items-center justify-center text-3xl shadow-lg mx-auto mb-4`}
-                  >
-                    {plan.icon}
-                  </div>
-                  <h3 className="text-3xl font-bold text-primary-purple mb-1">
-                    {plan.name}
-                  </h3>
-                  <p className="text-gray-500 text-sm font-medium">
-                    {plan.subtitle}
-                  </p>
-                </div>
-
-                {/* Price */}
-                <div className="mb-6 text-center">
-                  <span className="text-4xl font-bold text-primary-purple">
-                    {plan.price}
-                  </span>
-                  <span className="text-gray-500 text-sm block mt-1">
-                    /mes
-                  </span>
-                </div>
-
-                {/* Benefit */}
-                <p className="text-gray-700 mb-6 text-center font-medium">
-                  {plan.benefit}
-                </p>
-
-                {/* Features */}
-                <ul className="space-y-3 mb-8 flex-grow">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start text-gray-700 text-sm">
-                      <span className="text-primary-coral mr-2 mt-1 flex-shrink-0">✓</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Ideal For */}
-                <div className="mb-6 p-4 bg-primary-neutral/20 rounded-lg">
-                  <p className="text-xs text-gray-600 italic text-center">
-                    {plan.idealFor}
-                  </p>
-                </div>
-
-                {/* CTA */}
-                <a
-                  href={getWhatsAppUrl(plan.name, plan.subtitle)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => {
-                    if (typeof window !== 'undefined' && window.gtag) {
-                      window.gtag('event', 'click', {
-                        event_category: 'Plan',
-                        event_label: `${plan.name} - ${plan.subtitle}`,
-                      })
-                    }
-                  }}
-                  className={`w-full py-4 rounded-full font-bold text-white bg-gradient-to-r ${plan.color} hover:shadow-lg transition-all duration-300 hover:scale-105 text-center block ${
-                    plan.popular ? 'text-lg' : ''
-                  }`}
-                >
-                  {plan.popular ? 'Contratar Plan Popular' : 'Solicitar este plan'}
-                </a>
+        {/* Plans - Carousel on mobile, Grid on desktop */}
+        <div className="lg:hidden">
+          <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
+            {plans.map((plan) => (
+              <div key={plan.id} className="px-2">
+                <PlanCard plan={plan} getWhatsAppUrl={getWhatsAppUrl} />
               </div>
-            </motion.div>
+            ))}
+          </Carousel>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden lg:grid lg:grid-cols-3 gap-8">
+          {plans.map((plan, index) => (
+            <PlanCard
+              key={plan.id}
+              plan={plan}
+              getWhatsAppUrl={getWhatsAppUrl}
+              index={index}
+            />
           ))}
         </div>
 

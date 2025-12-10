@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import OptimizedImage from './OptimizedImage'
+import Carousel from './Carousel'
 
 const portfolioItems = [
   {
@@ -61,6 +62,54 @@ const portfolioItems = [
   },
 ]
 
+interface PortfolioCardProps {
+  item: typeof portfolioItems[0]
+  onSelect: () => void
+  index?: number
+}
+
+function PortfolioCard({ item, onSelect, index }: PortfolioCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: (index ?? 0) * 0.1 }}
+      whileHover={{ scale: 1.02 }}
+      className="relative group cursor-pointer overflow-hidden rounded-xl"
+      onClick={onSelect}
+    >
+      {/* Image */}
+      <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-primary-purple to-primary-coral">
+        <OptimizedImage
+          src={item.image}
+          alt={`${item.title} - ${item.category}`}
+          fill
+          objectFit="cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+        {/* Fallback si no hay imagen */}
+        <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+          <div className="text-white text-center p-4">
+            <div className="text-4xl mb-2">{item.category === 'Video Editing' ? '🎬' : item.category === 'Landing Page' ? '🚀' : '🎨'}</div>
+            <h3 className="text-xl font-bold mb-1">{item.title}</h3>
+            <p className="text-sm opacity-90">{item.category}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Overlay on Hover */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary-purple/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+        <div className="text-white">
+          <p className="text-sm font-medium mb-2">{item.industry}</p>
+          <p className="text-lg font-bold">{item.result}</p>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
 export default function Portfolio() {
   const [selectedItem, setSelectedItem] = useState<typeof portfolioItems[0] | null>(null)
 
@@ -86,47 +135,26 @@ export default function Portfolio() {
           </p>
         </motion.div>
 
-        {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {portfolioItems.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02 }}
-              className="relative group cursor-pointer overflow-hidden rounded-xl"
-              onClick={() => setSelectedItem(item)}
-            >
-              {/* Image */}
-              <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-primary-purple to-primary-coral">
-                <OptimizedImage
-                  src={item.image}
-                  alt={`${item.title} - ${item.category}`}
-                  fill
-                  objectFit="cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
-                {/* Fallback si no hay imagen */}
-                <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                  <div className="text-white text-center p-4">
-                    <div className="text-4xl mb-2">{item.category === 'Video Editing' ? '🎬' : item.category === 'Landing Page' ? '🚀' : '🎨'}</div>
-                    <h3 className="text-xl font-bold mb-1">{item.title}</h3>
-                    <p className="text-sm opacity-90">{item.category}</p>
-                  </div>
-                </div>
+        {/* Portfolio - Carousel on mobile, Grid on desktop */}
+        <div className="md:hidden">
+          <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
+            {portfolioItems.map((item) => (
+              <div key={item.id} className="px-2">
+                <PortfolioCard item={item} onSelect={() => setSelectedItem(item)} />
               </div>
+            ))}
+          </Carousel>
+        </div>
 
-              {/* Overlay on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-primary-purple/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <div className="text-white">
-                  <p className="text-sm font-medium mb-2">{item.industry}</p>
-                  <p className="text-lg font-bold">{item.result}</p>
-                </div>
-              </div>
-            </motion.div>
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {portfolioItems.map((item, index) => (
+            <PortfolioCard
+              key={item.id}
+              item={item}
+              onSelect={() => setSelectedItem(item)}
+              index={index}
+            />
           ))}
         </div>
 
