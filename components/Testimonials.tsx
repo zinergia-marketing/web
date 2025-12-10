@@ -67,7 +67,7 @@ export default function Testimonials() {
               className="bg-gradient-to-br from-white to-primary-neutral/20 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               {/* Quote Icon */}
-              <div className="text-4xl text-primary-coral mb-4">"</div>
+              <div className="text-4xl text-primary-coral mb-4">&ldquo;</div>
 
               {/* Quote */}
               <p className="text-gray-700 mb-6 text-lg leading-relaxed">

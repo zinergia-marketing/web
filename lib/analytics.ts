@@ -1,16 +1,5 @@
 // Google Analytics 4 helper functions
 
-declare global {
-  interface Window {
-    gtag: (
-      command: string,
-      targetId: string | Date | object,
-      config?: object
-    ) => void
-    dataLayer: any[]
-  }
-}
-
 export const trackEvent = (
   eventName: string,
   eventParams?: {
@@ -21,7 +10,7 @@ export const trackEvent = (
   }
 ) => {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', eventName, eventParams)
+    window.gtag('event', eventName, eventParams || {})
   }
 }
 
