@@ -15,7 +15,7 @@ const services = [
       '2 rondas de revisión',
       'Entrega 2-3 días',
     ],
-    price: 'Desde $50k',
+    price: 50000,
     color: 'from-primary-purple to-primary-coral',
   },
   {
@@ -28,12 +28,12 @@ const services = [
       'Efectos trendy',
       'Optimizado por plataforma',
     ],
-    price: 'Desde $80k',
+    price: 80000,
     color: 'from-primary-coral to-primary-purple',
   },
   {
     id: 3,
-    title: 'Landing Pages',
+    title: 'Página Web',
     icon: '🚀',
     description: 'Sitios web que convierten visitantes en clientes',
     features: [
@@ -41,7 +41,7 @@ const services = [
       'SEO optimizado',
       'Integración con CRM',
     ],
-    price: 'Desde $800k',
+    price: 800000,
     color: 'from-primary-purple to-primary-coral',
   },
   {
@@ -54,7 +54,7 @@ const services = [
       'ROAS mejorado',
       'Reportes detallados',
     ],
-    price: 'Desde $200k',
+    price: 200000,
     color: 'from-primary-coral to-primary-purple',
   },
   {
@@ -67,7 +67,7 @@ const services = [
       'Community management',
       'Estrategia personalizada',
     ],
-    price: 'Desde $300k',
+    price: 400000,
     color: 'from-primary-purple to-primary-coral',
   },
   {
@@ -80,7 +80,7 @@ const services = [
       'Plan de acción',
       'Seguimiento continuo',
     ],
-    price: 'Desde $150k',
+    price: 200000,
     color: 'from-primary-coral to-primary-purple',
   },
 ]
@@ -108,31 +108,31 @@ function ServiceCard({ service, getWhatsAppUrl, index, isMobile = false }: Servi
       <div
         className={`bg-white rounded-2xl ${isMobile ? 'p-5' : 'p-8'} shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col ${
           hoveredId === service.id && !isMobile ? 'transform scale-105' : ''
-        }`}
+        } ${isMobile ? 'text-center' : ''}`}
       >
         {/* Icon */}
-        <div className={isMobile ? 'mb-4' : 'mb-6'}>
+        <div className={`${isMobile ? 'mb-4' : 'mb-6'} ${isMobile ? 'flex justify-center' : ''}`}>
           <div
-            className={`${isMobile ? 'w-14 h-14 text-2xl' : 'w-16 h-16 text-3xl'} rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg`}
+            className={`${isMobile ? 'w-14 h-14 text-2xl' : 'w-16 h-16 text-3xl'} rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg ${isMobile ? 'mx-auto' : ''}`}
           >
             {service.icon}
           </div>
         </div>
 
         {/* Title */}
-        <h3 className={`${isMobile ? 'text-xl mb-2' : 'text-2xl mb-3'} font-bold text-primary-purple`}>
+        <h3 className={`${isMobile ? 'text-xl mb-2' : 'text-2xl mb-3'} font-bold text-primary-purple ${isMobile ? 'text-center' : ''}`}>
           {service.title}
         </h3>
 
         {/* Description */}
-        <p className={`text-gray-600 ${isMobile ? 'mb-4 text-sm' : 'mb-6'} flex-grow leading-relaxed`}>
+        <p className={`text-gray-600 ${isMobile ? 'mb-4 text-sm' : 'mb-6'} flex-grow leading-relaxed ${isMobile ? 'text-center' : ''}`}>
           {service.description}
         </p>
 
         {/* Features */}
-        <ul className={`${isMobile ? 'space-y-1.5 mb-4' : 'space-y-2 mb-6'}`}>
+        <ul className={`${isMobile ? 'space-y-1.5 mb-4' : 'space-y-2 mb-6'} ${isMobile ? 'items-center' : ''}`}>
           {service.features.map((feature, idx) => (
-            <li key={idx} className={`flex items-center text-gray-700 ${isMobile ? 'text-xs' : ''}`}>
+            <li key={idx} className={`flex ${isMobile ? 'justify-center items-center' : 'items-center'} text-gray-700 ${isMobile ? 'text-xs' : ''}`}>
               <span className="text-primary-coral mr-2 flex-shrink-0">✓</span>
               <span className="leading-relaxed">{feature}</span>
             </li>
@@ -140,10 +140,11 @@ function ServiceCard({ service, getWhatsAppUrl, index, isMobile = false }: Servi
         </ul>
 
         {/* Price */}
-        <div className={isMobile ? 'mb-4' : 'mb-6'}>
+        <div className={`${isMobile ? 'mb-4' : 'mb-6'} ${isMobile ? 'text-center' : ''}`}>
           <span className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-primary-purple`}>
-            {service.price}
+            ${service.price.toLocaleString('es-CO')}
           </span>
+          <span className="text-gray-600 text-sm ml-1 font-normal">pesos</span>
         </div>
 
         {/* CTA */}
