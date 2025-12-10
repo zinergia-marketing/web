@@ -242,33 +242,9 @@ export default function Plans() {
           <h2 className="text-4xl sm:text-5xl font-bold text-primary-purple mb-4">
             Planes Mensuales
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Impulsa tu negocio con creatividad e inteligencia artificial. Elige el plan que mejor se adapte a tu etapa de crecimiento.
           </p>
-          
-          {/* Discount Banner */}
-          {new Date() < DISCOUNT_END_DATE && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-gradient-to-r from-primary-coral to-primary-purple rounded-2xl p-6 mb-8 max-w-2xl mx-auto"
-            >
-              <div className="text-white">
-                <h3 className="text-2xl font-bold mb-2">
-                  🎉 {DISCOUNT_PERCENTAGE}% de Descuento por Tiempo Limitado
-                </h3>
-                <p className="text-white/90 mb-4">
-                  Oferta válida hasta el 31 de diciembre de 2025
-                </p>
-                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
-                  <p className="text-sm text-white/90 mb-2">Termina en:</p>
-                  <CountdownTimer endDate={DISCOUNT_END_DATE} />
-                </div>
-              </div>
-            </motion.div>
-          )}
         </motion.div>
 
         {/* Plans - Carousel on mobile, Grid on desktop */}
@@ -302,7 +278,7 @@ export default function Plans() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-12 text-center"
         >
-          <div className="bg-primary-neutral/20 rounded-2xl p-6 max-w-3xl mx-auto">
+          <div className="bg-primary-neutral/20 rounded-2xl p-6 max-w-3xl mx-auto mb-8">
             <p className="text-gray-700 text-sm mb-2">
               <strong>Nota importante:</strong> Todos los planes incluyen 2 rondas de revisión por entregable. 
               Los presupuestos de pauta publicitaria se cobran aparte según tus objetivos. 
@@ -310,6 +286,33 @@ export default function Plans() {
             </p>
           </div>
         </motion.div>
+
+        {/* Discount Banner */}
+        {new Date() < DISCOUNT_END_DATE && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="bg-gradient-to-r from-primary-coral to-primary-purple rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-2xl"
+          >
+            <div className="text-white">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <span className="text-3xl sm:text-4xl">🎉</span>
+                <h3 className="text-xl sm:text-3xl lg:text-4xl font-bold text-white">
+                  {DISCOUNT_PERCENTAGE}% de Descuento por Tiempo Limitado
+                </h3>
+              </div>
+              <p className="text-base sm:text-lg text-white mb-5 sm:mb-6 font-medium">
+                Oferta válida hasta el 31 de diciembre de 2025
+              </p>
+              <div className="bg-white/25 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/30">
+                <p className="text-sm sm:text-base text-white font-semibold mb-3 sm:mb-4">Termina en:</p>
+                <CountdownTimer endDate={DISCOUNT_END_DATE} className="text-white" />
+              </div>
+            </div>
+          </motion.div>
+        )}
       </div>
     </section>
   )
