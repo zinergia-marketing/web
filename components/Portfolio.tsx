@@ -17,12 +17,12 @@ const portfolioItems = [
   },
   {
     id: 2,
-    title: 'Ecommerce Store',
-    category: 'Landing Page',
-    description: 'Diseño y desarrollo de tienda online',
-    result: '3x leads mensuales',
-    image: '/images/portfolio/ecommerce.jpg', // Reemplaza con tu imagen
-    industry: 'E-commerce',
+    title: 'Boutique La Guaca',
+    category: 'Edición de Video + Asesoría',
+    description: 'Estrategia integral de video marketing y asesoría personalizada para boutique de moda. Desarrollamos contenido visual atractivo que muestra las tendencias de moda y conecta con el público objetivo, combinado con asesoría estratégica para maximizar el impacto en redes sociales y aumentar las conversiones.',
+    result: 'Aumentó 150% conversión',
+    image: '/images/portfolio/imagen-portafolio-laguaca.jpg',
+    industry: 'Tienda de Moda / Boutique',
   },
   {
     id: 3,
