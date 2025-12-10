@@ -74,10 +74,6 @@ function TestimonialCard({ testimonial, index, isMobile = false }: TestimonialCa
             objectFit="cover"
             sizes={isMobile ? "56px" : "64px"}
           />
-          {/* Fallback inicial */}
-          <div className="absolute inset-0 bg-gradient-primary flex items-center justify-center text-white font-bold" style={{ fontSize: isMobile ? '1.125rem' : '1.25rem' }}>
-            {testimonial.name.charAt(0)}
-          </div>
         </div>
         <div className="min-w-0 flex-1">
           <h4 className={`font-bold text-primary-purple ${isMobile ? 'text-sm' : ''} truncate`}>

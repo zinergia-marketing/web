@@ -50,14 +50,14 @@ export default function OptimizedImage({
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
 
-  // Si hay error, mostrar placeholder
+  // Si hay error, mostrar placeholder con inicial
   if (hasError) {
     return (
       <div 
-        className={`bg-gradient-to-br from-primary-purple to-primary-coral flex items-center justify-center ${className}`}
+        className={`bg-gradient-to-br from-primary-purple to-primary-coral flex items-center justify-center text-white font-bold ${className}`}
         style={fill ? {} : { width, height }}
       >
-        <span className="text-white text-sm">Imagen no disponible</span>
+        <span style={{ fontSize: fill ? '1.5rem' : '1.25rem' }}>{alt.charAt(0)}</span>
       </div>
     )
   }
@@ -79,9 +79,11 @@ export default function OptimizedImage({
     <>
       {isLoading && (
         <div 
-          className={`absolute inset-0 bg-gradient-to-br from-primary-purple/20 to-primary-coral/20 animate-pulse ${className}`}
+          className={`absolute inset-0 bg-gradient-to-br from-primary-purple to-primary-coral flex items-center justify-center text-white font-bold z-10 ${className}`}
           style={fill ? {} : { width, height }}
-        />
+        >
+          <span style={{ fontSize: fill ? '1.5rem' : '1.25rem' }}>{alt.charAt(0)}</span>
+        </div>
       )}
       <Image
         src={src}
