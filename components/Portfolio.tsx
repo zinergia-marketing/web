@@ -53,12 +53,12 @@ const portfolioItems = [
   },
   {
     id: 6,
-    title: 'SaaS Platform',
-    category: 'Landing + Pautas',
-    description: 'Landing page optimizada con campañas',
-    result: 'ROAS 4:1 en primeros 30 días',
-    image: '/images/portfolio/saas-platform.jpg', // Reemplaza con tu imagen
-    industry: 'SaaS',
+    title: 'Épica Joyería',
+    category: 'Manejo de Pautas',
+    description: 'Estrategia integral de manejo de pautas publicitarias para joyería. Desarrollamos campañas optimizadas con targeting preciso que conectan con el público objetivo interesado en joyería fina, maximizando el retorno de inversión publicitaria y generando conversiones significativas que se reflejan directamente en el aumento de ventas.',
+    result: 'Aumentó 200% en ventas',
+    image: '/images/portfolio/imagen-portafolio-epica.jpg',
+    industry: 'Joyería',
   },
 ]
 
@@ -97,7 +97,8 @@ function PortfolioCard({ item, onSelect, index, isMobile = false }: PortfolioCar
               {item.category === 'Video Editing' || item.category.includes('Edición de Video') ? '📹' : 
                item.category === 'Landing Page' ? '🚀' : 
                item.category.includes('Redes') || item.category.includes('Gestión de Redes') ? '📱' :
-               item.category.includes('Branding') ? '🎨' : '🎨'}
+               item.category.includes('Branding') ? '🎨' : 
+               item.category.includes('Pautas') || item.category.includes('Manejo de Pautas') ? '📊' : '🎨'}
             </div>
             <h3 className="text-xl font-bold mb-1">{item.title}</h3>
             <p className="text-sm opacity-90">{item.category}</p>
