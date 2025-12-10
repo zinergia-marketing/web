@@ -20,15 +20,18 @@ type ContactFormData = z.infer<typeof contactSchema>
 const services = [
   'Diseño Gráfico',
   'Edición de Video',
-  'Landing Pages',
-  'Estrategia Completa',
+  'Página Web',
+  'Manejo de Pautas',
+  'Manejo de Redes Sociales',
+  'Asesoría Personalizada',
+  'Plan Mensual (Básico/Estándar/Avanzado)',
 ]
 
 const budgetRanges = [
-  '$50k - $200k',
-  '$200k - $500k',
+  '$100k - $500k',
   '$500k - $1M',
-  '$1M+',
+  '$1M - $2M',
+  '$2M+',
 ]
 
 export default function ContactForm() {
@@ -94,7 +97,7 @@ export default function ContactForm() {
             Solicita tu Cotización Gratis
           </h2>
           <p className="text-xl text-gray-600">
-            Cuéntanos sobre tu proyecto y te responderemos en menos de 24 horas
+            Cuéntanos sobre tu proyecto y te responderemos en menos de 15 minutos
           </p>
         </motion.div>
 
@@ -237,7 +240,7 @@ export default function ContactForm() {
               ¡Gracias por contactarnos!
             </h3>
             <p className="text-xl text-gray-600 mb-6">
-              Hemos recibido tu solicitud y nos pondremos en contacto contigo en menos de 24 horas.
+              Hemos recibido tu solicitud y nos pondremos en contacto contigo en menos de 15 minutos.
             </p>
             <p className="text-gray-500">
               Mientras tanto, puedes contactarnos directamente por WhatsApp si tienes alguna pregunta urgente.
