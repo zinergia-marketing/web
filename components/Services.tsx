@@ -167,7 +167,7 @@ function ServiceCard({ service, getWhatsAppUrl, index, isMobile = false }: Servi
           }}
           className={`w-full ${isMobile ? 'py-2.5 text-sm' : 'py-3'} rounded-full font-semibold text-white bg-gradient-to-r ${service.color} hover:shadow-lg transition-all duration-300 hover:scale-105 text-center block`}
         >
-          Solicitar este servicio
+          Cotizar este servicio
         </a>
       </div>
     </motion.div>
