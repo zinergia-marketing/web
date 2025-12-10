@@ -3,13 +3,17 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Carousel from './Carousel'
+import CountdownTimer from './CountdownTimer'
+
+const DISCOUNT_PERCENTAGE = 20
+const DISCOUNT_END_DATE = new Date('2025-12-31T23:59:59')
 
 const plans = [
   {
     id: 1,
     name: 'Plan Básico',
     subtitle: 'Inicio Digital',
-    price: 500000,
+    price: 800000,
     benefit: 'Construye tu presencia digital y genera tus primeros leads de forma profesional',
     idealFor: 'Emprendedores y microempresas que inician su presencia digital y necesitan contenido profesional sin una inversión alta',
     color: 'from-primary-purple to-primary-coral',
@@ -20,6 +24,7 @@ const plans = [
       'Manejo de 2 redes sociales (Instagram y Facebook)',
       '12 publicaciones al mes (3 por semana)',
       'Community management básico',
+      '1 campaña de pautas publicitarias (presupuesto aparte)',
       '1 hora de asesoría estratégica mensual',
       'Reporte mensual de métricas básicas',
     ],
@@ -40,7 +45,7 @@ const plans = [
       'Manejo de 3 redes sociales (Instagram, Facebook, TikTok)',
       '16 publicaciones al mes (4 por semana)',
       'Community management completo',
-      'Manejo de pautas publicitarias (presupuesto aparte)',
+      '2 campañas de pautas publicitarias (presupuesto aparte)',
       '2 horas de asesoría estratégica mensual',
       'Reportes semanales de ROAS y métricas',
     ],
@@ -58,10 +63,10 @@ const plans = [
     features: [
       '30+ piezas de diseño gráfico al mes',
       '12 reels o videos cortos editados',
-      'Manejo completo de 4 redes sociales',
+      'Manejo completo de hasta 4 redes sociales',
       '24 publicaciones al mes (6 por semana)',
-      'Community management premium (24/7)',
-      'Manejo avanzado de pautas multi-plataforma',
+      'Community management premium',
+      '4 campañas de pautas publicitarias (presupuesto aparte)',
       'Landing Page incluida (nueva o mejoras mensuales)',
       '4 horas de asesoría estratégica mensual',
       'Reporte mensual ejecutivo con análisis predictivo',
@@ -125,13 +130,45 @@ function PlanCard({ plan, getWhatsAppUrl, index, isMobile = false }: PlanCardPro
 
         {/* Price */}
         <div className={`${isMobile ? 'mb-4' : 'mb-6'} text-center`}>
-          <span className={`${isMobile ? 'text-3xl' : 'text-4xl'} font-bold text-primary-purple`}>
-            ${plan.price.toLocaleString('es-CO')}
-          </span>
-          <span className="text-gray-600 text-sm ml-1 font-normal">pesos</span>
-          <span className="text-gray-500 text-sm block mt-1">
-            al mes
-          </span>
+          {new Date() < DISCOUNT_END_DATE ? (
+            <>
+              {/* Discount Badge */}
+              <div className="mb-2">
+                <span className="inline-block px-3 py-1 bg-gradient-to-r from-primary-coral to-primary-purple text-white rounded-full text-xs font-bold">
+                  {DISCOUNT_PERCENTAGE}% OFF
+                </span>
+              </div>
+              
+              {/* Original Price (tachado) */}
+              <div className="mb-1">
+                <span className={`${isMobile ? 'text-xl' : 'text-2xl'} text-gray-400 line-through`}>
+                  ${plan.price.toLocaleString('es-CO')}
+                </span>
+              </div>
+              
+              {/* Discounted Price */}
+              <div>
+                <span className={`${isMobile ? 'text-3xl' : 'text-4xl'} font-bold text-primary-purple`}>
+                  ${Math.round(plan.price * (1 - DISCOUNT_PERCENTAGE / 100)).toLocaleString('es-CO')}
+                </span>
+                <span className="text-gray-600 text-sm ml-1 font-normal">pesos</span>
+              </div>
+              
+              <span className="text-gray-500 text-sm block mt-1">
+                al mes
+              </span>
+            </>
+          ) : (
+            <>
+              <span className={`${isMobile ? 'text-3xl' : 'text-4xl'} font-bold text-primary-purple`}>
+                ${plan.price.toLocaleString('es-CO')}
+              </span>
+              <span className="text-gray-600 text-sm ml-1 font-normal">pesos</span>
+              <span className="text-gray-500 text-sm block mt-1">
+                al mes
+              </span>
+            </>
+          )}
         </div>
 
         {/* Benefit */}
@@ -205,9 +242,33 @@ export default function Plans() {
           <h2 className="text-4xl sm:text-5xl font-bold text-primary-purple mb-4">
             Planes Mensuales
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
             Impulsa tu negocio con creatividad e inteligencia artificial. Elige el plan que mejor se adapte a tu etapa de crecimiento.
           </p>
+          
+          {/* Discount Banner */}
+          {new Date() < DISCOUNT_END_DATE && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-gradient-to-r from-primary-coral to-primary-purple rounded-2xl p-6 mb-8 max-w-2xl mx-auto"
+            >
+              <div className="text-white">
+                <h3 className="text-2xl font-bold mb-2">
+                  🎉 {DISCOUNT_PERCENTAGE}% de Descuento por Tiempo Limitado
+                </h3>
+                <p className="text-white/90 mb-4">
+                  Oferta válida hasta el 31 de diciembre de 2025
+                </p>
+                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                  <p className="text-sm text-white/90 mb-2">Termina en:</p>
+                  <CountdownTimer endDate={DISCOUNT_END_DATE} />
+                </div>
+              </div>
+            </motion.div>
+          )}
         </motion.div>
 
         {/* Plans - Carousel on mobile, Grid on desktop */}
