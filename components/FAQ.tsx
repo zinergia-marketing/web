@@ -155,6 +155,7 @@ export default function FAQ() {
           <h2 className="text-4xl sm:text-5xl font-bold text-primary-purple mb-4">
             Preguntas Frecuentes
           </h2>
+          {/* Sección FAQ - Actualizada */}
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Resolvemos las dudas más comunes sobre nuestros servicios y planes
           </p>
