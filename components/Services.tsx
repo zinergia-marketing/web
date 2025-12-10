@@ -141,10 +141,15 @@ function ServiceCard({ service, getWhatsAppUrl, index, isMobile = false }: Servi
 
         {/* Price */}
         <div className={`${isMobile ? 'mb-4' : 'mb-6'} ${isMobile ? 'text-center' : ''}`}>
-          <span className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-primary-purple`}>
-            ${service.price.toLocaleString('es-CO')}
-          </span>
-          <span className="text-gray-600 text-sm ml-1 font-normal">pesos</span>
+          <div className="text-gray-600 text-sm font-normal mb-1">
+            desde
+          </div>
+          <div>
+            <span className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-primary-purple`}>
+              ${service.price.toLocaleString('es-CO')}
+            </span>
+            <span className="text-gray-600 text-sm ml-1 font-normal">pesos</span>
+          </div>
         </div>
 
         {/* CTA */}
