@@ -248,13 +248,15 @@ export default function Plans() {
         </motion.div>
 
         {/* Plans - Carousel on mobile, Grid on desktop */}
-        <div className="lg:hidden -mx-4 sm:-mx-6">
-          <div className="px-4 sm:px-6 pt-10 pb-2 overflow-visible">
-            <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
-              {plans.map((plan) => (
-                <PlanCard key={plan.id} plan={plan} getWhatsAppUrl={getWhatsAppUrl} isMobile={true} />
-              ))}
-            </Carousel>
+        <div className="lg:hidden overflow-x-hidden">
+          <div className="-mx-4 sm:-mx-6">
+            <div className="px-4 sm:px-6 pt-10 pb-2">
+              <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
+                {plans.map((plan) => (
+                  <PlanCard key={plan.id} plan={plan} getWhatsAppUrl={getWhatsAppUrl} isMobile={true} />
+                ))}
+              </Carousel>
+            </div>
           </div>
         </div>
 
