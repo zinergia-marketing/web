@@ -55,31 +55,31 @@ export default function CountdownTimer({ endDate, className = '' }: CountdownTim
   return (
     <div className={`flex items-center justify-center gap-2 sm:gap-3 ${className}`}>
       <div className="flex flex-col items-center">
-        <span className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>
+        <span className={`text-2xl sm:text-3xl lg:text-2xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>
           {String(timeLeft.days).padStart(2, '0')}
         </span>
-        <span className={`text-xs sm:text-sm ${isWhiteTheme ? 'text-white/90' : 'text-gray-600'}`}>días</span>
+        <span className={`text-xs sm:text-sm lg:text-xs ${isWhiteTheme ? 'text-white/90' : 'text-gray-600'}`}>días</span>
       </div>
-      <span className={`text-xl sm:text-2xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>:</span>
+      <span className={`text-xl sm:text-2xl lg:text-xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>:</span>
       <div className="flex flex-col items-center">
-        <span className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>
+        <span className={`text-2xl sm:text-3xl lg:text-2xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>
           {String(timeLeft.hours).padStart(2, '0')}
         </span>
-        <span className={`text-xs sm:text-sm ${isWhiteTheme ? 'text-white/90' : 'text-gray-600'}`}>horas</span>
+        <span className={`text-xs sm:text-sm lg:text-xs ${isWhiteTheme ? 'text-white/90' : 'text-gray-600'}`}>horas</span>
       </div>
-      <span className={`text-xl sm:text-2xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>:</span>
+      <span className={`text-xl sm:text-2xl lg:text-xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>:</span>
       <div className="flex flex-col items-center">
-        <span className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>
+        <span className={`text-2xl sm:text-3xl lg:text-2xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>
           {String(timeLeft.minutes).padStart(2, '0')}
         </span>
-        <span className={`text-xs sm:text-sm ${isWhiteTheme ? 'text-white/90' : 'text-gray-600'}`}>min</span>
+        <span className={`text-xs sm:text-sm lg:text-xs ${isWhiteTheme ? 'text-white/90' : 'text-gray-600'}`}>min</span>
       </div>
-      <span className={`text-xl sm:text-2xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>:</span>
+      <span className={`text-xl sm:text-2xl lg:text-xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>:</span>
       <div className="flex flex-col items-center">
-        <span className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>
+        <span className={`text-2xl sm:text-3xl lg:text-2xl font-bold ${isWhiteTheme ? 'text-white' : 'text-primary-purple'}`}>
           {String(timeLeft.seconds).padStart(2, '0')}
         </span>
-        <span className={`text-xs sm:text-sm ${isWhiteTheme ? 'text-white/90' : 'text-gray-600'}`}>seg</span>
+        <span className={`text-xs sm:text-sm lg:text-xs ${isWhiteTheme ? 'text-white/90' : 'text-gray-600'}`}>seg</span>
       </div>
     </div>
   )

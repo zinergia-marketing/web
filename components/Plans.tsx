@@ -296,20 +296,20 @@ export default function Plans() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="bg-gradient-to-r from-primary-coral to-primary-purple rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-2xl"
+            className="bg-gradient-to-r from-primary-coral to-primary-purple rounded-2xl p-4 sm:p-6 lg:p-5 max-w-3xl mx-auto shadow-2xl"
           >
             <div className="text-white">
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <span className="text-3xl sm:text-4xl">🎉</span>
-                <h3 className="text-xl sm:text-3xl lg:text-4xl font-bold text-white">
+              <div className="flex items-center justify-center gap-2 mb-2 sm:mb-3">
+                <span className="text-2xl sm:text-3xl lg:text-2xl">🎉</span>
+                <h3 className="text-lg sm:text-2xl lg:text-xl font-bold text-white">
                   {DISCOUNT_PERCENTAGE}% de Descuento por Tiempo Limitado
                 </h3>
               </div>
-              <p className="text-base sm:text-lg text-white mb-5 sm:mb-6 font-medium">
+              <p className="text-sm sm:text-base lg:text-sm text-white mb-4 sm:mb-5 lg:mb-4 font-medium">
                 Oferta válida hasta el 31 de diciembre de 2025
               </p>
-              <div className="bg-white/25 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/30">
-                <p className="text-sm sm:text-base text-white font-semibold mb-3 sm:mb-4">Termina en:</p>
+              <div className="bg-white/25 backdrop-blur-sm rounded-xl p-3 sm:p-4 lg:p-3 border border-white/30">
+                <p className="text-xs sm:text-sm lg:text-xs text-white font-semibold mb-2 sm:mb-3 lg:mb-2">Termina en:</p>
                 <CountdownTimer endDate={DISCOUNT_END_DATE} className="text-white" />
               </div>
             </div>
