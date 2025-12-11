@@ -35,12 +35,12 @@ const portfolioItems = [
   },
   {
     id: 4,
-    title: 'Invicta Store',
-    category: 'Edición de Video',
-    description: 'Estrategia de video marketing para tienda de moda. Desarrollamos contenido visual atractivo que muestra las tendencias de moda y productos de manera dinámica, creando videos que conectan con el público objetivo y generan conversiones significativas en redes sociales.',
-    result: 'Aumentó 200% conversión',
-    image: '/images/portfolio/imagen-portafolio-invictastore.jpg',
-    industry: 'Moda',
+    title: 'Terrasana SAS',
+    category: 'Redes + Página Web',
+    description: 'Estrategia integral de gestión de redes sociales y desarrollo de página web para empresa de psicultura. Implementamos una presencia digital coherente que conecta la estrategia de redes sociales con una página web optimizada, creando un ecosistema digital que potencia el engagement y posiciona a Terrasana como referente en la industria acuícola.',
+    result: '250% crecimiento de engagement',
+    image: '/images/portfolio/imagen-portafolio-terrasana.jpg',
+    industry: 'Psicultura',
   },
   {
     id: 5,
@@ -96,7 +96,7 @@ function PortfolioCard({ item, onSelect, index, isMobile = false }: PortfolioCar
             <div className="text-4xl mb-2">
               {item.category === 'Video Editing' || item.category.includes('Edición de Video') ? '📹' : 
                item.category === 'Landing Page' ? '🚀' : 
-               item.category.includes('Redes') || item.category.includes('Gestión de Redes') ? '📱' :
+               item.category.includes('Redes') || item.category.includes('Gestión de Redes') ? (item.industry === 'Psicultura' ? '🐟' : '📱') :
                item.category.includes('Branding') ? '🎨' : 
                item.category.includes('Pautas') || item.category.includes('Manejo de Pautas') ? '📊' : '🎨'}
             </div>
