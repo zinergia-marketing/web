@@ -43,7 +43,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://facebook.com/zinergiamarketing"
+                href="https://facebook.com/zinergiamarketing.co"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-coral transition-colors"
