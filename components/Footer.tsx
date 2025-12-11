@@ -120,10 +120,10 @@ export default function Footer() {
             <ul className="space-y-3 text-gray-400">
               <li>
                 <a
-                  href="mailto:hola@zinergiamarketing.com"
+                  href="mailto:hola@zinergiamarketing.info"
                   className="hover:text-white transition-colors"
                 >
-                  hola@zinergiamarketing.com
+                  hola@zinergiamarketing.info
                 </a>
               </li>
               <li>

@@ -1,7 +1,7 @@
 export default function StructuredData() {
   const baseUrl = process.env.NEXT_PUBLIC_DOMAIN
     ? `https://${process.env.NEXT_PUBLIC_DOMAIN}`
-    : 'https://zinergiamarketing.com'
+    : 'https://zinergiamarketing.info'
 
   const organizationSchema = {
     '@context': 'https://schema.org',
@@ -18,7 +18,7 @@ export default function StructuredData() {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Service',
-      email: 'hola@zinergiamarketing.com',
+      email: 'hola@zinergiamarketing.info',
       availableLanguage: 'Spanish',
     },
     sameAs: [
@@ -40,7 +40,7 @@ export default function StructuredData() {
     image: `${baseUrl}/images/general/og-image.jpg`,
     url: baseUrl,
     telephone: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573243463101',
-    email: 'hola@zinergiamarketing.com',
+    email: 'hola@zinergiamarketing.info',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'CO',

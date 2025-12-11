@@ -66,7 +66,7 @@ export async function addContactToBrevo(data: ContactData) {
       })
 
       // Notificación al equipo de Zinergia
-      const teamEmail = process.env.ZINERGIA_TEAM_EMAIL || 'hola@zinergiamarketing.com'
+      const teamEmail = process.env.ZINERGIA_TEAM_EMAIL || 'hola@zinergiamarketing.info'
       await sendTransactionalEmail({
         to: teamEmail,
         subject: `Nuevo contacto: ${data.name} - ${data.service || 'Sin servicio especificado'}`,
@@ -132,7 +132,7 @@ async function sendTransactionalEmail({ to, subject, htmlContent }: Transactiona
     await brevoApi.post('/smtp/email', {
       sender: {
         name: 'Zinergia Marketing',
-        email: 'noreply@zinergiamarketing.com',
+        email: 'noreply@zinergiamarketing.info',
       },
       to: [{ email: to }],
       subject,

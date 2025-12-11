@@ -8,7 +8,7 @@ import SkipToContent from '@/components/SkipToContent'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_DOMAIN ? `https://${process.env.NEXT_PUBLIC_DOMAIN}` : 'https://zinergiamarketing.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_DOMAIN ? `https://${process.env.NEXT_PUBLIC_DOMAIN}` : 'https://zinergiamarketing.info'),
   title: 'Zinergia | Marketing Digital - Diseño, Video y Web',
   description: 'Impulsa tu negocio con creatividad + IA. Diseño gráfico, edición de video profesional, páginas web, manejo de redes sociales y pautas publicitarias. Resultados en 30 días.',
   keywords: 'marketing digital, diseño gráfico, edición de video, páginas web, manejo de redes sociales, pautas publicitarias, community management, branding, marketing digital Colombia, agencia de marketing digital, PyMEs Colombia',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Zinergia | Marketing Digital',
     description: 'Impulsa tu negocio con creatividad + IA. Diseño gráfico, edición de video y páginas web que convierten.',
-    url: 'https://zinergiamarketing.com',
+    url: 'https://zinergiamarketing.info',
     siteName: 'Zinergia Marketing',
     locale: 'es_CO',
     type: 'website',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://zinergiamarketing.com',
+    canonical: 'https://zinergiamarketing.info',
   },
 }
 

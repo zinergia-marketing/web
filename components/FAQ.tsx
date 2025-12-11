@@ -64,7 +64,7 @@ const faqs = [
   {
     id: 12,
     question: '¿Cómo me contacto con ustedes si tengo una pregunta urgente?',
-    answer: 'Puedes contactarnos directamente por WhatsApp (respondemos en menos de 15 minutos), a través del formulario de contacto en esta página, o por email a hola@zinergiamarketing.com. También puedes usar el botón flotante de WhatsApp que aparece en la esquina de la página.',
+    answer: 'Puedes contactarnos directamente por WhatsApp (respondemos en menos de 15 minutos), a través del formulario de contacto en esta página, o por email a hola@zinergiamarketing.info. También puedes usar el botón flotante de WhatsApp que aparece en la esquina de la página.',
   },
 ]
 
