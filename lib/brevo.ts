@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const BREVO_API_KEY = process.env.NEXT_PUBLIC_BREVO_API_KEY
+// IMPORTANTE: La API key debe ser del servidor, NO del cliente
+// En Vercel, configúrala como BREVO_API_KEY (sin NEXT_PUBLIC_)
+const BREVO_API_KEY = process.env.BREVO_API_KEY || process.env.NEXT_PUBLIC_BREVO_API_KEY
 const BREVO_LIST_ID = process.env.BREVO_LIST_ID
 
 const brevoApi = axios.create({
@@ -47,16 +49,42 @@ export async function addContactToBrevo(data: ContactData) {
 
     await brevoApi.post('/contacts', contactData)
 
-    // Si es un formulario de contacto, enviar email de confirmación
+    // Si es un formulario de contacto, enviar emails
     if (data.type === 'contact' && data.message) {
+      // Email de confirmación al cliente
       await sendTransactionalEmail({
         to: data.email,
         subject: 'Gracias por contactar a Zinergia',
         htmlContent: `
-          <h2>Hola ${data.name},</h2>
-          <p>Gracias por contactarnos. Hemos recibido tu solicitud y nos pondremos en contacto contigo en menos de 15 minutos.</p>
-          <p>Mientras tanto, puedes contactarnos directamente por WhatsApp si tienes alguna pregunta urgente.</p>
-          <p>Saludos,<br>El equipo de Zinergia</p>
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #3b0b5b;">Hola ${data.name},</h2>
+            <p>Gracias por contactarnos. Hemos recibido tu solicitud y nos pondremos en contacto contigo en menos de 15 minutos.</p>
+            <p>Mientras tanto, puedes contactarnos directamente por WhatsApp si tienes alguna pregunta urgente.</p>
+            <p>Saludos,<br>El equipo de Zinergia</p>
+          </div>
+        `,
+      })
+
+      // Notificación al equipo de Zinergia
+      const teamEmail = process.env.ZINERGIA_TEAM_EMAIL || 'hola@zinergiamarketing.com'
+      await sendTransactionalEmail({
+        to: teamEmail,
+        subject: `Nuevo contacto: ${data.name} - ${data.service || 'Sin servicio especificado'}`,
+        htmlContent: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #3b0b5b;">Nuevo Contacto Recibido</h2>
+            <p><strong>Nombre:</strong> ${data.name}</p>
+            <p><strong>Email:</strong> ${data.email}</p>
+            ${data.phone ? `<p><strong>Teléfono:</strong> ${data.phone}</p>` : ''}
+            ${data.company ? `<p><strong>Empresa:</strong> ${data.company}</p>` : ''}
+            <p><strong>Servicio de interés:</strong> ${data.service || 'No especificado'}</p>
+            <p><strong>Presupuesto:</strong> ${data.budget || 'No especificado'}</p>
+            <p><strong>Mensaje:</strong></p>
+            <p style="background: #f5f5f5; padding: 15px; border-radius: 5px;">${data.message || 'Sin mensaje'}</p>
+            <p style="margin-top: 20px; color: #666; font-size: 12px;">
+              Responder en menos de 15 minutos según compromiso.
+            </p>
+          </div>
         `,
       })
     } else if (data.type === 'newsletter') {
