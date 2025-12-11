@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "deploy": "powershell -ExecutionPolicy Bypass -File ./deploy.ps1",
-    "setup-git": "powershell -ExecutionPolicy Bypass -File ./setup-git.ps1"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "^14.0.0",

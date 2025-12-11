@@ -64,12 +64,16 @@ Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 │   ├── Navigation.tsx
 │   ├── Hero.tsx
 │   ├── Services.tsx
+│   ├── Plans.tsx
 │   ├── Portfolio.tsx
-│   ├── CTASection.tsx
 │   ├── Testimonials.tsx
+│   ├── FAQ.tsx
 │   ├── ContactForm.tsx
 │   ├── Footer.tsx
-│   └── WhatsAppButton.tsx
+│   ├── WhatsAppButton.tsx
+│   ├── Carousel.tsx
+│   ├── CountdownTimer.tsx
+│   └── OptimizedImage.tsx
 ├── lib/              # Utilidades
 │   ├── brevo.ts      # Integración Brevo
 │   └── analytics.ts  # Google Analytics
