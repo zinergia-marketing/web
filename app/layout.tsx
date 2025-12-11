@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Script from 'next/script'
 import StructuredData from '@/components/StructuredData'
+import SkipToContent from '@/components/SkipToContent'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -63,9 +64,18 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://facebook.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#3b0b5b" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Zinergia Marketing" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-TileColor" content="#3b0b5b" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
         <StructuredData />
       </head>
       <body className={inter.className}>
+        <SkipToContent />
         {gaId && (
           <>
             <Script

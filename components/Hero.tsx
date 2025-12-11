@@ -1,8 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/useReducedMotion'
 
 export default function Hero() {
+  const prefersReducedMotion = useReducedMotion()
 
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573243463101'
   const whatsappMessage = encodeURIComponent('Hola, me interesa conocer los servicios de Zinergia')
@@ -11,7 +13,7 @@ export default function Hero() {
   const scrollToContact = () => {
     const element = document.getElementById('contact')
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      element.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' })
     }
   }
 
@@ -29,11 +31,11 @@ export default function Hero() {
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-20 left-10 w-72 h-72 bg-primary-coral rounded-full mix-blend-multiply filter blur-xl opacity-30"
-          animate={{
+          animate={prefersReducedMotion ? {} : {
             x: [0, 100, 0],
             y: [0, 50, 0],
           }}
-          transition={{
+          transition={prefersReducedMotion ? {} : {
             duration: 20,
             repeat: Infinity,
             ease: 'easeInOut',
@@ -41,11 +43,11 @@ export default function Hero() {
         />
         <motion.div
           className="absolute bottom-20 right-10 w-96 h-96 bg-primary-purple rounded-full mix-blend-multiply filter blur-xl opacity-30"
-          animate={{
+          animate={prefersReducedMotion ? {} : {
             x: [0, -100, 0],
             y: [0, -50, 0],
           }}
-          transition={{
+          transition={prefersReducedMotion ? {} : {
             duration: 25,
             repeat: Infinity,
             ease: 'easeInOut',
@@ -126,6 +128,7 @@ export default function Hero() {
                   })
                 }
               }}
+              aria-label="Solicitar cotización gratis - Ir al formulario de contacto"
               className="px-8 py-4 bg-white text-primary-purple rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
             >
               Solicitar Cotización Gratis
@@ -134,6 +137,7 @@ export default function Hero() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Contactar por WhatsApp - Abrir conversación"
               className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white hover:text-primary-purple transition-all duration-300 hover:scale-105 w-full sm:w-auto text-center"
               onClick={() => {
                 if (typeof window !== 'undefined' && window.gtag) {

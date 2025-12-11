@@ -45,6 +45,15 @@ export default function Navigation() {
             onClick={() => scrollToSection('hero')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            role="button"
+            tabIndex={0}
+            aria-label="Ir al inicio - Zinergia Marketing"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                scrollToSection('hero')
+              }
+            }}
           >
             <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-3xl">Z</span>
@@ -65,6 +74,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection('services')}
+              aria-label="Ir a la sección de Servicios"
               className={`transition-colors duration-300 font-medium ${
                 isScrolled
                   ? 'text-gray-700 hover:text-primary-purple'
@@ -75,6 +85,7 @@ export default function Navigation() {
             </button>
             <button
               onClick={() => scrollToSection('plans')}
+              aria-label="Ir a la sección de Planes Mensuales"
               className={`transition-colors duration-300 font-medium ${
                 isScrolled
                   ? 'text-gray-700 hover:text-primary-purple'
@@ -85,6 +96,7 @@ export default function Navigation() {
             </button>
             <button
               onClick={() => scrollToSection('portfolio')}
+              aria-label="Ir a la sección de Portafolio"
               className={`transition-colors duration-300 font-medium ${
                 isScrolled
                   ? 'text-gray-700 hover:text-primary-purple'
@@ -95,6 +107,7 @@ export default function Navigation() {
             </button>
             <button
               onClick={() => scrollToSection('testimonials')}
+              aria-label="Ir a la sección de Testimonios"
               className={`transition-colors duration-300 font-medium ${
                 isScrolled
                   ? 'text-gray-700 hover:text-primary-purple'
@@ -105,6 +118,7 @@ export default function Navigation() {
             </button>
             <button
               onClick={() => scrollToSection('faq')}
+              aria-label="Ir a la sección de Preguntas Frecuentes"
               className={`transition-colors duration-300 font-medium ${
                 isScrolled
                   ? 'text-gray-700 hover:text-primary-purple'
@@ -115,6 +129,7 @@ export default function Navigation() {
             </button>
             <button
               onClick={() => scrollToSection('contact')}
+              aria-label="Ir a la sección de Contacto"
               className={`transition-colors duration-300 font-medium ${
                 isScrolled
                   ? 'text-gray-700 hover:text-primary-purple'
@@ -187,36 +202,42 @@ export default function Navigation() {
             <div className="px-4 py-4 space-y-4">
               <button
                 onClick={() => scrollToSection('services')}
+                aria-label="Ir a la sección de Servicios"
                 className="block w-full text-left text-gray-700 hover:text-primary-purple transition-colors font-medium py-2"
               >
                 Servicios
               </button>
               <button
                 onClick={() => scrollToSection('plans')}
+                aria-label="Ir a la sección de Planes Mensuales"
                 className="block w-full text-left text-gray-700 hover:text-primary-purple transition-colors font-medium py-2"
               >
                 Planes Mensuales
               </button>
               <button
                 onClick={() => scrollToSection('portfolio')}
+                aria-label="Ir a la sección de Portafolio"
                 className="block w-full text-left text-gray-700 hover:text-primary-purple transition-colors font-medium py-2"
               >
                 Portafolio
               </button>
               <button
                 onClick={() => scrollToSection('testimonials')}
+                aria-label="Ir a la sección de Testimonios"
                 className="block w-full text-left text-gray-700 hover:text-primary-purple transition-colors font-medium py-2"
               >
                 Testimonios
               </button>
               <button
                 onClick={() => scrollToSection('faq')}
+                aria-label="Ir a la sección de Preguntas Frecuentes"
                 className="block w-full text-left text-gray-700 hover:text-primary-purple transition-colors font-medium py-2"
               >
                 FAQ
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
+                aria-label="Ir a la sección de Contacto"
                 className="block w-full text-left text-gray-700 hover:text-primary-purple transition-colors font-medium py-2"
               >
                 Contacto
