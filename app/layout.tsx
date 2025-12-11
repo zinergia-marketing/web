@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Script from 'next/script'
+import StructuredData from '@/components/StructuredData'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -54,6 +55,15 @@ export default function RootLayout({
     <html lang="es">
       <head>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://wa.me" />
+        <link rel="dns-prefetch" href="https://instagram.com" />
+        <link rel="dns-prefetch" href="https://facebook.com" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="theme-color" content="#3b0b5b" />
+        <StructuredData />
       </head>
       <body className={inter.className}>
         {gaId && (
