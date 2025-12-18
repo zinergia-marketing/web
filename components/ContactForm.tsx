@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { MdCheckCircle } from 'react-icons/md'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
@@ -298,7 +299,9 @@ export default function ContactForm() {
             animate={{ scale: 1, opacity: 1 }}
             className="bg-white rounded-2xl shadow-xl p-12 text-center"
           >
-            <div className="text-6xl mb-6">✅</div>
+            <div className="flex justify-center mb-6">
+              <MdCheckCircle className="text-6xl text-green-500" />
+            </div>
             <h3 className="text-3xl font-bold text-primary-purple mb-4">
               ¡Gracias por contactarnos!
             </h3>

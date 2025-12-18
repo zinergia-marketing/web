@@ -20,9 +20,10 @@ npm install
 Crea un archivo `.env.local` en la raíz del proyecto con:
 
 ```env
-# Brevo Email API
-NEXT_PUBLIC_BREVO_API_KEY=xkeysib-tu_api_key_aqui
+# Brevo Email API (IMPORTANTE: Sin NEXT_PUBLIC_ para seguridad)
+BREVO_API_KEY=xkeysib-tu_api_key_aqui
 BREVO_LIST_ID=tu_list_id_aqui
+ZINERGIA_TEAM_EMAIL=hola@zinergiamarketing.info
 
 # Google Analytics
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXX
@@ -99,7 +100,7 @@ Verifica que todo funcione correctamente en `http://localhost:3000`
 
 ### Emails no se envían
 
-- Verifica que `NEXT_PUBLIC_BREVO_API_KEY` esté correctamente configurada
+- Verifica que `BREVO_API_KEY` esté correctamente configurada (sin NEXT_PUBLIC_)
 - Verifica que el dominio esté verificado en Brevo
 - Revisa los logs del servidor para errores
 

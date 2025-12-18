@@ -47,27 +47,37 @@ mx2.zoho.com (prioridad 20)
 5. Ingresa: `zinergiamarketing.info`
 6. También agrega: `www.zinergiamarketing.info` (opcional pero recomendado)
 
-### Paso 2: Configurar DNS en tu Proveedor de Dominio
+### Paso 2: Configurar DNS en tu Proveedor de Dominio (Porkbun)
 
-Vercel te dará los registros DNS que necesitas. Ejemplo:
+**⚠️ IMPORTANTE: Si recibes el error "A CNAME or ALIAS record already exists"**
 
-**Registros A (si tu proveedor no soporta CNAME en raíz):**
-```
-@  A  76.76.21.21
-@  A  76.76.21.21
-```
+Este error significa que ya tienes un CNAME o ALIAS en la raíz (@). **Debes eliminarlo primero** antes de agregar registros A.
 
-**O Registro CNAME (recomendado):**
-```
-@  CNAME  cname.vercel-dns.com
-www  CNAME  cname.vercel-dns.com
-```
+**Solución paso a paso para Porkbun:**
 
-**Configuración en tu proveedor de dominio:**
-1. Accede al panel de control de tu proveedor de dominio
-2. Ve a la sección de DNS o "Manage DNS"
-3. Agrega los registros que Vercel te proporciona
-4. Espera 24-48 horas para que se propague (aunque suele ser más rápido)
+1. **Eliminar registros conflictivos:**
+   - Ve a Porkbun > My Domains > `zinergiamarketing.info` > DNS
+   - Busca cualquier registro **CNAME** o **ALIAS** con nombre `@` (o vacío)
+   - **ELIMÍNALO** antes de continuar
+
+2. **Obtener registros de Vercel:**
+   - En Vercel Dashboard > Settings > Domains > `zinergiamarketing.info`
+   - Vercel te mostrará los registros DNS necesarios
+
+3. **Agregar registros A en Porkbun:**
+   - **Tipo:** A
+   - **Host:** @ (o deja vacío)
+   - **Answer:** [IP que Vercel te dé, ej: 76.76.21.21]
+   - **TTL:** 3600 (o Auto)
+   - Agrega **2 registros A** con el mismo IP (si Vercel lo requiere)
+
+4. **Para www (opcional):**
+   - **Tipo:** CNAME
+   - **Host:** www
+   - **Answer:** `cname.vercel-dns.com` (o el que Vercel te dé)
+   - **TTL:** 3600
+
+**Nota:** Vercel normalmente usa registros A para la raíz, NO CNAME. Si Vercel te da un CNAME para la raíz, usa ALIAS en Porkbun en su lugar.
 
 ### Paso 3: Actualizar Variable de Entorno en Vercel
 

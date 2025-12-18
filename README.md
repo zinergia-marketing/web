@@ -27,12 +27,17 @@ npm install
 Copia `.env.local.example` a `.env.local` y completa los valores:
 
 ```env
-NEXT_PUBLIC_BREVO_API_KEY=tu_api_key_aqui
+BREVO_API_KEY=xkeysib-tu_api_key_aqui
 BREVO_LIST_ID=tu_list_id
+ZINERGIA_TEAM_EMAIL=hola@zinergiamarketing.info
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXX
 NEXT_PUBLIC_WHATSAPP_NUMBER=57XXXXXXXXX
-NEXT_PUBLIC_DOMAIN=zinergiamarketing.com
+NEXT_PUBLIC_DOMAIN=zinergiamarketing.info
 ```
+
+**⚠️ IMPORTANTE:** 
+- `BREVO_API_KEY` debe ser sin `NEXT_PUBLIC_` (es una variable del servidor, no del cliente)
+- En Vercel, configura estas variables en **Settings** > **Environment Variables**
 
 3. Ejecuta el servidor de desarrollo:
 

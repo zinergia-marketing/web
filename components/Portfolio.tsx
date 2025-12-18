@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import OptimizedImage from './OptimizedImage'
 import Carousel from './Carousel'
+import { MdVideocam, MdRocketLaunch, MdPhoneAndroid, MdPalette, MdBarChart, MdPets } from 'react-icons/md'
 
 const portfolioItems = [
   {
@@ -99,12 +100,12 @@ function PortfolioCard({ item, onSelect, index, isMobile = false }: PortfolioCar
         {/* Fallback si no hay imagen */}
         <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
           <div className="text-white text-center p-4">
-            <div className="text-4xl mb-2">
-              {item.category === 'Video Editing' || item.category.includes('Edición de Video') ? '📹' : 
-               item.category === 'Landing Page' ? '🚀' : 
-               item.category.includes('Redes') || item.category.includes('Gestión de Redes') ? (item.industry === 'Psicultura' ? '🐟' : '📱') :
-               item.category.includes('Branding') ? '🎨' : 
-               item.category.includes('Pautas') || item.category.includes('Manejo de Pautas') ? '📊' : '🎨'}
+            <div className="text-4xl mb-2 flex justify-center">
+              {item.category === 'Video Editing' || item.category.includes('Edición de Video') ? <MdVideocam /> : 
+               item.category === 'Landing Page' ? <MdRocketLaunch /> : 
+               item.category.includes('Redes') || item.category.includes('Gestión de Redes') ? (item.industry === 'Psicultura' ? <MdPets /> : <MdPhoneAndroid />) :
+               item.category.includes('Branding') ? <MdPalette /> : 
+               item.category.includes('Pautas') || item.category.includes('Manejo de Pautas') ? <MdBarChart /> : <MdPalette />}
             </div>
             <h3 className="text-xl font-bold mb-1">{item.title}</h3>
             <p className="text-sm opacity-90">{item.category}</p>

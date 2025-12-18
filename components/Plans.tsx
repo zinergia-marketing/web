@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Carousel from './Carousel'
 import CountdownTimer from './CountdownTimer'
+import { MdAutoAwesome, MdRocketLaunch, MdBolt, MdCheckCircle, MdCelebration } from 'react-icons/md'
 
 const DISCOUNT_PERCENTAGE = 20
 const DISCOUNT_END_DATE = new Date('2025-12-31T23:59:59')
@@ -17,7 +18,7 @@ const plans = [
     benefit: 'Construye tu presencia digital y genera tus primeros leads de forma profesional',
     idealFor: 'Emprendedores y microempresas que inician su presencia digital y necesitan contenido profesional sin una inversión alta',
     color: 'from-primary-purple to-primary-coral',
-    icon: '✨',
+    icon: MdAutoAwesome,
     features: [
       '12 piezas de diseño gráfico al mes',
       '4 reels o videos cortos editados',
@@ -38,7 +39,7 @@ const plans = [
     benefit: 'Acelera tu crecimiento con contenido estratégico y pautas optimizadas que generan ventas constantes',
     idealFor: 'PyMEs en crecimiento que buscan escalar ventas con marketing digital estructurado y resultados medibles',
     color: 'from-primary-coral to-primary-purple',
-    icon: '🚀',
+    icon: MdRocketLaunch,
     features: [
       '20 piezas de diseño gráfico al mes',
       '8 reels o videos cortos editados',
@@ -59,7 +60,7 @@ const plans = [
     benefit: 'Escala agresivamente con una estrategia integral que maximiza conversiones y ROI',
     idealFor: 'Empresas que buscan escalar resultados, maximizar ROI y necesitan una estrategia integral con soporte estratégico continuo',
     color: 'from-primary-purple to-primary-coral',
-    icon: '⚡',
+    icon: MdBolt,
     features: [
       '30+ piezas de diseño gráfico al mes',
       '12 reels o videos cortos editados',
@@ -116,9 +117,9 @@ function PlanCard({ plan, getWhatsAppUrl, index, isMobile = false }: PlanCardPro
         {/* Icon & Name */}
         <div className={`${isMobile ? 'mb-4' : 'mb-6'} text-center`}>
           <div
-            className={`${isMobile ? 'w-14 h-14 text-2xl mb-3' : 'w-16 h-16 text-3xl mb-4'} rounded-xl bg-gradient-to-br ${plan.color} flex items-center justify-center shadow-lg mx-auto`}
+            className={`${isMobile ? 'w-14 h-14 mb-3' : 'w-16 h-16 mb-4'} rounded-xl bg-gradient-to-br ${plan.color} flex items-center justify-center shadow-lg mx-auto`}
           >
-            {plan.icon}
+            <plan.icon className={`${isMobile ? 'text-3xl' : 'text-4xl'} text-white`} />
           </div>
           <h3 className={`${isMobile ? 'text-2xl mb-1' : 'text-3xl mb-1'} font-bold text-primary-purple`}>
             {plan.name}
@@ -180,7 +181,7 @@ function PlanCard({ plan, getWhatsAppUrl, index, isMobile = false }: PlanCardPro
         <ul className={`${isMobile ? 'space-y-2 mb-6' : 'space-y-3 mb-8'} flex-grow`}>
           {plan.features.map((feature, idx) => (
             <li key={idx} className={`flex items-start text-gray-700 ${isMobile ? 'text-xs' : 'text-sm'}`}>
-              <span className="text-primary-coral mr-2 mt-0.5 flex-shrink-0">✓</span>
+              <MdCheckCircle className="text-primary-coral mr-2 mt-0.5 flex-shrink-0 text-lg" />
               <span className="leading-relaxed">{feature}</span>
             </li>
           ))}
@@ -300,7 +301,7 @@ export default function Plans() {
           >
             <div className="text-white">
               <div className="flex items-center justify-center gap-2 mb-2 sm:mb-3">
-                <span className="text-2xl sm:text-3xl lg:text-2xl">🎉</span>
+                <MdCelebration className="text-2xl sm:text-3xl lg:text-2xl" />
                 <h3 className="text-lg sm:text-2xl lg:text-xl font-bold text-white uppercase">
                   {DISCOUNT_PERCENTAGE}% DE DESCUENTO POR TIEMPO LIMITADO
                 </h3>

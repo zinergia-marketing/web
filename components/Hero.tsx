@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useReducedMotion } from '@/lib/useReducedMotion'
+import { MdAutoAwesome, MdCheckCircle } from 'react-icons/md'
 
 export default function Hero() {
   const prefersReducedMotion = useReducedMotion()
@@ -70,8 +71,9 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-block"
           >
-            <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium">
-              ✨ Más de 5 años impulsando PyMEs
+            <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium flex items-center gap-2 justify-center">
+              <MdAutoAwesome className="text-base" />
+              Más de 5 años impulsando PyMEs
             </span>
           </motion.div>
 
@@ -160,15 +162,15 @@ export default function Hero() {
             className="pt-4 sm:pt-6 lg:pt-10 pb-0 lg:pb-4 flex flex-wrap items-center justify-center gap-6 text-white/80 text-sm"
           >
             <div className="flex items-center gap-2">
-              <span className="text-2xl">✓</span>
+              <MdCheckCircle className="text-2xl" />
               <span>Procesos optimizados con IA</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl">✓</span>
+              <MdCheckCircle className="text-2xl" />
               <span>Resultados en 30 días</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl">✓</span>
+              <MdCheckCircle className="text-2xl" />
               <span>Precios justos, calidad premium</span>
             </div>
           </motion.div>

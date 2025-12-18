@@ -3,12 +3,13 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Carousel from './Carousel'
+import { MdPalette, MdMovie, MdRocketLaunch, MdBarChart, MdPhoneAndroid, MdLightbulb, MdCheckCircle } from 'react-icons/md'
 
 const services = [
   {
     id: 1,
     title: 'Diseño Gráfico',
-    icon: '🎨',
+    icon: MdPalette,
     description: 'Posts, carruseles, flyers profesionales para tus redes',
     features: [
       'Diseño trendy',
@@ -21,7 +22,7 @@ const services = [
   {
     id: 2,
     title: 'Edición de Video',
-    icon: '🎬',
+    icon: MdMovie,
     description: 'Reels, TikToks, videos publicitarios que impactan',
     features: [
       'Edición profesional',
@@ -34,7 +35,7 @@ const services = [
   {
     id: 3,
     title: 'Página Web',
-    icon: '🚀',
+    icon: MdRocketLaunch,
     description: 'Sitios web que convierten visitantes en clientes',
     features: [
       'Responsive',
@@ -47,7 +48,7 @@ const services = [
   {
     id: 4,
     title: 'Manejo de Pautas',
-    icon: '📊',
+    icon: MdBarChart,
     description: 'Gestión profesional de campañas publicitarias en redes sociales',
     features: [
       'Optimización continua',
@@ -60,7 +61,7 @@ const services = [
   {
     id: 5,
     title: 'Manejo de Redes Sociales',
-    icon: '📱',
+    icon: MdPhoneAndroid,
     description: 'Gestión completa de tus redes sociales con contenido estratégico',
     features: [
       'Contenido diario',
@@ -73,7 +74,7 @@ const services = [
   {
     id: 6,
     title: 'Asesoría Personalizada',
-    icon: '💡',
+    icon: MdLightbulb,
     description: 'Consultoría estratégica para hacer crecer tu negocio digital',
     features: [
       'Análisis personalizado',
@@ -113,9 +114,9 @@ function ServiceCard({ service, getWhatsAppUrl, index, isMobile = false }: Servi
         {/* Icon */}
         <div className={`${isMobile ? 'mb-4' : 'mb-6'} ${isMobile ? 'flex justify-center' : ''}`}>
           <div
-            className={`${isMobile ? 'w-14 h-14 text-2xl' : 'w-16 h-16 text-3xl'} rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg ${isMobile ? 'mx-auto' : ''}`}
+            className={`${isMobile ? 'w-14 h-14' : 'w-16 h-16'} rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg ${isMobile ? 'mx-auto' : ''}`}
           >
-            {service.icon}
+            <service.icon className={`${isMobile ? 'text-3xl' : 'text-4xl'} text-white`} />
           </div>
         </div>
 
@@ -133,7 +134,7 @@ function ServiceCard({ service, getWhatsAppUrl, index, isMobile = false }: Servi
         <ul className={`${isMobile ? 'space-y-1.5 mb-4' : 'space-y-2 mb-6'} ${isMobile ? 'items-center' : ''}`}>
           {service.features.map((feature, idx) => (
             <li key={idx} className={`flex ${isMobile ? 'justify-center items-center' : 'items-center'} text-gray-700 ${isMobile ? 'text-xs' : ''}`}>
-              <span className="text-primary-coral mr-2 flex-shrink-0">✓</span>
+              <MdCheckCircle className="text-primary-coral mr-2 flex-shrink-0 text-lg" />
               <span className="leading-relaxed">{feature}</span>
             </li>
           ))}
