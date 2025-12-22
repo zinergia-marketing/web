@@ -29,14 +29,18 @@ const services = [
   'Manejo de Pautas',
   'Manejo de Redes Sociales',
   'Asesoría Personalizada',
-  'Plan Mensual (Básico/Estándar/Avanzado)',
+  'Producción de Contenido (Video y Fotografía)',
+  'Chatbots y Automatizaciones con IA',
+  'Club Zinergia',
+  'Plan Mensual (Básico/Estándar/Avanzado/Premium)',
 ]
 
 const budgetRanges = [
   '$100k - $500k',
   '$500k - $1M',
   '$1M - $2M',
-  '$2M+',
+  '$2M - $4M',
+  '$4M+',
 ]
 
 export default function ContactForm() {
@@ -116,7 +120,7 @@ export default function ContactForm() {
   return (
     <section
       id="contact"
-      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-primary-neutral/20"
+      className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-primary-neutral/20"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -124,14 +128,33 @@ export default function ContactForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8 sm:mb-10 lg:mb-12"
+          className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-primary-purple mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary-purple mb-3 sm:mb-4 px-4">
             Solicita tu Cotización Gratis
           </h2>
-          <p className="text-xl text-gray-600">
-            Cuéntanos sobre tu proyecto y te responderemos en menos de 15 minutos
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-6 px-4">
+            Te respondemos en menos de 15 minutos. El diagnóstico es sin costo y está pensado para negocios que venden en redes sociales.
           </p>
+          
+          {/* Value Bullets */}
+          <div className="flex flex-col sm:flex-row lg:grid lg:grid-cols-3 items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-6 mb-6 sm:mb-8 px-4">
+            <div className="flex items-center justify-center gap-2 text-gray-700">
+              <MdCheckCircle className="text-primary-coral text-lg sm:text-xl flex-shrink-0" />
+              <span className="text-xs sm:text-sm md:text-base font-medium text-center">Entendemos tu negocio</span>
+            </div>
+            <div className="flex items-center justify-center gap-2 text-gray-700">
+              <MdCheckCircle className="text-primary-coral text-lg sm:text-xl flex-shrink-0" />
+              <span className="text-xs sm:text-sm md:text-base font-medium text-center">Proyectamos resultados con datos</span>
+            </div>
+            <div className="flex items-start lg:items-center lg:justify-center gap-2 text-gray-700">
+              <MdCheckCircle className="text-primary-coral text-lg sm:text-xl flex-shrink-0 mt-0.5 lg:mt-0" />
+              <span className="text-xs sm:text-sm md:text-base font-medium text-center">
+                <span className="block lg:inline">Medimos, comparamos y</span>
+                <span className="block lg:inline">mejoramos mes a mes</span>
+              </span>
+            </div>
+          </div>
         </motion.div>
 
         {!isSubmitted ? (

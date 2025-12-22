@@ -27,7 +27,7 @@ export default function Footer() {
               <span className="text-xl font-bold">Zinergia</span>
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
-              Impulsamos PyMEs y emprendedores con soluciones creativas + IA.
+              Impulsamos negocios y emprendedores con soluciones creativas + IA.
               Transformamos negocios en marcas digitales de alto impacto.
             </p>
             <div className="flex space-x-4">
@@ -89,14 +89,6 @@ export default function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('testimonials')}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Testimonios
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => scrollToSection('faq')}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
@@ -136,7 +128,7 @@ export default function Footer() {
                   <span>WhatsApp</span>
                 </a>
               </li>
-              <li className="text-sm">Colombia</li>
+              <li className="text-sm">Montería, Córdoba, Colombia</li>
             </ul>
           </div>
         </div>

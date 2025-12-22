@@ -27,6 +27,13 @@ export default function Carousel({
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index)
+    // Reset auto-play after manual navigation
+    if (autoPlay && totalItems > 1 && intervalRef.current) {
+      clearInterval(intervalRef.current)
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev === totalItems - 1 ? 0 : prev + 1))
+      }, autoPlayInterval)
+    }
   }
 
   const nextSlide = () => {
@@ -40,6 +47,9 @@ export default function Carousel({
   // Auto-play
   useEffect(() => {
     if (autoPlay && totalItems > 1) {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+      }
       intervalRef.current = setInterval(() => {
         setCurrentIndex((prev) => (prev === totalItems - 1 ? 0 : prev + 1))
       }, autoPlayInterval)
@@ -54,6 +64,10 @@ export default function Carousel({
 
   // Touch handlers
   const handleTouchStart = (e: React.TouchEvent) => {
+    // Pause auto-play on touch
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+    }
     setTouchStart(e.targetTouches[0].clientX)
   }
 
@@ -62,7 +76,17 @@ export default function Carousel({
   }
 
   const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return
+    if (!touchStart || !touchEnd) {
+      setTouchStart(0)
+      setTouchEnd(0)
+      // Restart auto-play
+      if (autoPlay && totalItems > 1) {
+        intervalRef.current = setInterval(() => {
+          setCurrentIndex((prev) => (prev === totalItems - 1 ? 0 : prev + 1))
+        }, autoPlayInterval)
+      }
+      return
+    }
 
     const distance = touchStart - touchEnd
     const minSwipeDistance = 50
@@ -75,9 +99,19 @@ export default function Carousel({
       prevSlide()
     }
 
-    // Reset
+    // Reset and restart auto-play after a delay
     setTouchStart(0)
     setTouchEnd(0)
+    if (autoPlay && totalItems > 1) {
+      setTimeout(() => {
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current)
+        }
+        intervalRef.current = setInterval(() => {
+          setCurrentIndex((prev) => (prev === totalItems - 1 ? 0 : prev + 1))
+        }, autoPlayInterval)
+      }, 1000) // Restart after 1 second
+    }
   }
 
   // Pause auto-play on hover/touch
@@ -105,16 +139,25 @@ export default function Carousel({
     >
       {/* Carousel Container */}
       <div
-        className="w-full pt-2 overflow-x-hidden overflow-y-visible"
+        className="w-full pt-2 overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="overflow-x-hidden overflow-y-visible">
-          <div
-            className="flex transition-transform duration-500 ease-in-out"
+        <div className="overflow-hidden">
+          <motion.div
+            className="flex"
+            animate={{
+              x: `-${currentIndex * 100}%`,
+            }}
+            transition={{
+              type: 'spring',
+              stiffness: 300,
+              damping: 30,
+              duration: 0.6,
+            }}
             style={{
-              transform: `translateX(-${currentIndex * 100}%)`,
+              display: 'flex',
             }}
           >
             {children.map((child, index) => (
@@ -126,7 +169,7 @@ export default function Carousel({
                 {child}
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
 

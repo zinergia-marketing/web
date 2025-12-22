@@ -3,91 +3,55 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Carousel from './Carousel'
-import { MdPalette, MdMovie, MdRocketLaunch, MdBarChart, MdPhoneAndroid, MdLightbulb, MdCheckCircle } from 'react-icons/md'
+import { MdVideocam, MdSmartToy, MdGroups, MdCheckCircle } from 'react-icons/md'
 
-const services = [
+const advancedServices = [
   {
     id: 1,
-    title: 'Diseño Gráfico',
-    icon: MdPalette,
-    description: 'Diseño gráfico que genera engagement y ventas desde Instagram, Facebook y TikTok',
+    title: 'Producción de Contenido',
+    icon: MdVideocam,
+    description: 'Grabación profesional de video y fotografía para anuncios ganadores y contenido de alto valor que convierte',
     features: [
-      'Diseño trendy orientado a conversión',
-      '2 rondas de revisión',
-      'Entrega 2-3 días',
+      'Producción de video publicitario profesional',
+      'Sesiones de fotografía para productos y servicios',
+      'Contenido optimizado para redes sociales y anuncios',
+      'Equipos profesionales y edición de alta calidad',
     ],
-    price: 50000,
+    price: 250000,
     color: 'from-primary-purple to-primary-coral',
   },
   {
     id: 2,
-    title: 'Edición de Video',
-    icon: MdMovie,
-    description: 'Videos que convierten: Reels, TikToks y contenido publicitario que impacta y vende',
+    title: 'Chatbots y Automatizaciones con IA',
+    icon: MdSmartToy,
+    description: 'Chatbots inteligentes y agentes con IA para WhatsApp y página web, automatizaciones con Manychat en Instagram',
     features: [
-      'Edición profesional orientada a resultados',
-      'Efectos trendy que captan atención',
-      'Optimizado por plataforma para máximo alcance',
+      'Chatbots con IA para WhatsApp y página web',
+      'Automatizaciones con Manychat en Instagram',
+      'Respuestas inteligentes 24/7',
+      'Integración con CRM y sistemas de ventas',
     ],
-    price: 80000,
+    price: 300000,
     color: 'from-primary-coral to-primary-purple',
   },
   {
     id: 3,
-    title: 'Página Web',
-    icon: MdRocketLaunch,
-    description: 'Sitios web pensados para convertir visitas desde redes en clientes reales',
+    title: 'Club Zinergia',
+    icon: MdGroups,
+    description: 'Suscripción mensual con asesoría estratégica fija, capacitaciones de equipos y acompañamiento continuo para escalar tu negocio',
     features: [
-      'Diseño responsive y optimizado',
-      'SEO para atraer más tráfico',
-      'Integración con CRM y herramientas de conversión',
-    ],
-    price: 800000,
-    color: 'from-primary-purple to-primary-coral',
-  },
-  {
-    id: 4,
-    title: 'Manejo de Pautas',
-    icon: MdBarChart,
-    description: 'Campañas con ROAS optimizado para transformar clics en ventas',
-    features: [
-      'Optimización continua basada en métricas',
-      'ROAS mejorado mes a mes',
-      'Reportes detallados de resultados',
-    ],
-    price: 200000,
-    color: 'from-primary-coral to-primary-purple',
-  },
-  {
-    id: 5,
-    title: 'Manejo de Redes Sociales',
-    icon: MdPhoneAndroid,
-    description: 'Manejo de redes para generar ventas constantes desde Instagram, Facebook y TikTok',
-    features: [
-      'Contenido diario estratégico',
-      'Community management que convierte',
-      'Estrategia personalizada orientada a resultados',
+      '2-3 reuniones estratégicas semanales',
+      'Capacitaciones para equipos de venta y marketing',
+      'Asesoría fija y acompañamiento continuo',
+      'Acceso a recursos exclusivos y comunidad',
     ],
     price: 400000,
     color: 'from-primary-purple to-primary-coral',
   },
-  {
-    id: 6,
-    title: 'Asesoría Personalizada',
-    icon: MdLightbulb,
-    description: 'Consultoría estratégica que proyecta resultados con datos y te ayuda a escalar tu negocio',
-    features: [
-      'Análisis personalizado de tu negocio',
-      'Plan de acción con métricas claras',
-      'Seguimiento continuo y optimización',
-    ],
-    price: 100000,
-    color: 'from-primary-coral to-primary-purple',
-  },
 ]
 
 interface ServiceCardProps {
-  service: typeof services[0]
+  service: typeof advancedServices[0]
   getWhatsAppUrl: (serviceTitle: string) => string
   index?: number
   isMobile?: boolean
@@ -161,7 +125,7 @@ function ServiceCard({ service, getWhatsAppUrl, index, isMobile = false }: Servi
           onClick={() => {
             if (typeof window !== 'undefined' && window.gtag) {
               window.gtag('event', 'click', {
-                event_category: 'Service',
+                event_category: 'AdvancedService',
                 event_label: service.title,
               })
             }
@@ -175,7 +139,7 @@ function ServiceCard({ service, getWhatsAppUrl, index, isMobile = false }: Servi
   )
 }
 
-export default function Services() {
+export default function AdvancedServices() {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573243463101'
   
   const getWhatsAppUrl = (serviceTitle: string) => {
@@ -185,8 +149,8 @@ export default function Services() {
 
   return (
     <section
-      id="services"
-      className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-primary-neutral/30"
+      id="advanced-services"
+      className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-primary-neutral/30 to-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -198,10 +162,10 @@ export default function Services() {
           className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary-purple mb-2 sm:mb-4 px-4">
-            Servicios que transforman negocios
+            Servicios para escalar empresas
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
-            Soluciones orientadas a resultados que te ayudan a vender más desde redes sociales
+            Soluciones avanzadas con IA y automatizaciones para llevar tu negocio al siguiente nivel
           </p>
         </motion.div>
 
@@ -210,7 +174,7 @@ export default function Services() {
           <div className="-mx-4 sm:-mx-6">
             <div className="px-4 sm:px-6">
               <Carousel autoPlay={true} autoPlayInterval={4500} showIndicators={true}>
-                {services.map((service) => (
+                {advancedServices.map((service) => (
                   <ServiceCard key={service.id} service={service} getWhatsAppUrl={getWhatsAppUrl} isMobile={true} />
                 ))}
               </Carousel>
@@ -219,8 +183,8 @@ export default function Services() {
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+        <div className="hidden md:grid md:grid-cols-3 gap-8">
+          {advancedServices.map((service, index) => (
             <ServiceCard
               key={service.id}
               service={service}

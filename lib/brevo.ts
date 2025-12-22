@@ -146,7 +146,7 @@ export async function addContactToBrevo(data: ContactData) {
             <td style="background-color: #1a1a1a; padding: 30px; text-align: center;">
               <p style="color: #ffffff; font-size: 16px; font-weight: bold; margin: 0 0 16px 0;">Zinergia Marketing</p>
               <p style="color: #999999; font-size: 14px; margin: 0 0 20px 0; line-height: 1.6;">
-                Impulsamos PyMEs y emprendedores con soluciones creativas + IA
+                Impulsamos negocios y emprendedores con soluciones creativas + IA
               </p>
               
               <!-- Redes sociales -->
@@ -477,7 +477,7 @@ export async function addContactToBrevo(data: ContactData) {
             <td style="background-color: #1a1a1a; padding: 30px; text-align: center;">
               <p style="color: #ffffff; font-size: 16px; font-weight: bold; margin: 0 0 16px 0;">Zinergia Marketing</p>
               <p style="color: #999999; font-size: 14px; margin: 0 0 20px 0; line-height: 1.6;">
-                Impulsamos PyMEs y emprendedores con soluciones creativas + IA
+                Impulsamos negocios y emprendedores con soluciones creativas + IA
               </p>
               
               <!-- Redes sociales -->

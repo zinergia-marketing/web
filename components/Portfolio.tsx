@@ -11,8 +11,17 @@ const portfolioItems = [
     id: 1,
     title: 'TuColpagos SAS',
     category: 'Branding + Página Web',
-    description: 'Desarrollo de identidad visual completa y página web para ecosistema de servicios financieros. Creamos un branding moderno que refleja agilidad y seguridad, con presencia digital integrada en web e Instagram que posiciona a Tu Colpagos como corresponsal aliado para franquicias.',
-    result: '200% crecimiento de engagement',
+    challenge: 'Fintech que necesitaba posicionarse como corresponsal aliado para franquicias, pero carecía de una identidad visual moderna y una presencia digital coherente que comunicara agilidad y seguridad.',
+    strategy: [
+      'Desarrollo de identidad visual completa que refleja agilidad y seguridad',
+      'Creación de página web optimizada para conversión',
+      'Estrategia integrada de contenido para Instagram y web',
+      'Posicionamiento como corresponsal aliado para franquicias',
+    ],
+    results: [
+      { metric: '+200%', label: 'crecimiento de engagement' },
+      { metric: 'Mejora significativa', label: 'en posicionamiento de marca' },
+    ],
     image: '/images/portfolio/imagen-portafolio-tucolpagos.jpg',
     industry: 'Fintech',
     instagram: 'tucolpagos',
@@ -21,8 +30,17 @@ const portfolioItems = [
     id: 2,
     title: 'Boutique La Guaca',
     category: 'Edición de Video + Asesoría',
-    description: 'Estrategia integral de video marketing y asesoría personalizada para boutique de moda. Desarrollamos contenido visual atractivo que muestra las tendencias de moda y conecta con el público objetivo, combinado con asesoría estratégica para maximizar el impacto en redes sociales y aumentar las conversiones.',
-    result: 'Aumentó 150% conversión',
+    challenge: 'Boutique de moda que necesitaba aumentar sus conversiones y ventas desde redes sociales, pero su contenido no estaba generando el impacto esperado en su audiencia.',
+    strategy: [
+      'Estrategia integral de video marketing con contenido visual atractivo',
+      'Desarrollo de videos que muestran tendencias de moda y conectan con el público',
+      'Asesoría estratégica personalizada para maximizar impacto',
+      'Optimización de contenido para aumentar conversiones',
+    ],
+    results: [
+      { metric: '+150%', label: 'aumento en conversión' },
+      { metric: 'Mayor interacción', label: 'y más ventas en la boutique' },
+    ],
     image: '/images/portfolio/imagen-portafolio-laguaca.jpg',
     industry: 'Moda',
     instagram: 'boutiquelaguaca1',
@@ -31,8 +49,17 @@ const portfolioItems = [
     id: 3,
     title: 'Tecnomas Colombia',
     category: 'Redes + Página Web',
-    description: 'Estrategia integral de gestión de redes sociales y desarrollo de página web para empresa de tecnología. Implementamos una presencia digital coherente que conecta la estrategia de redes sociales con una página web optimizada, creando un ecosistema digital que potencia el engagement y la conversión.',
-    result: '200% crecimiento de engagement',
+    challenge: 'Empresa de tecnología que necesitaba una presencia digital coherente y unificada que conectara su estrategia de redes sociales con una página web optimizada para generar más engagement y conversión.',
+    strategy: [
+      'Estrategia integral de gestión de redes sociales',
+      'Desarrollo de página web optimizada para conversión',
+      'Creación de ecosistema digital coherente',
+      'Integración de estrategia entre redes y web',
+    ],
+    results: [
+      { metric: '+200%', label: 'crecimiento de engagement' },
+      { metric: 'Mejor conversión', label: 'de tráfico en clientes reales' },
+    ],
     image: '/images/portfolio/imagen-portafolio-tecnomas.jpg',
     industry: 'Tecnología',
     instagram: 'tecnomascolombia',
@@ -41,8 +68,17 @@ const portfolioItems = [
     id: 4,
     title: 'Terrasana SAS',
     category: 'Redes + Asesoría',
-    description: 'Estrategia integral de gestión de redes sociales y asesoría personalizada para empresa de psicultura. Implementamos una presencia digital coherente que conecta la estrategia de redes sociales con asesoría estratégica especializada, creando un ecosistema digital que potencia el engagement y posiciona a Terrasana como referente en la industria acuícola.',
-    result: '250% crecimiento de engagement',
+    challenge: 'Empresa de psicultura que necesitaba posicionarse como referente en la industria acuícola y aumentar su engagement en redes sociales con una estrategia especializada.',
+    strategy: [
+      'Estrategia integral de gestión de redes sociales especializada',
+      'Asesoría estratégica personalizada para la industria acuícola',
+      'Creación de ecosistema digital coherente',
+      'Posicionamiento como referente en psicultura',
+    ],
+    results: [
+      { metric: '+250%', label: 'crecimiento de engagement' },
+      { metric: 'Posicionamiento fortalecido', label: 'como referente en la industria' },
+    ],
     image: '/images/portfolio/imagen-portafolio-terrasana.jpg',
     industry: 'Psicultura',
     instagram: 'terrasanasas',
@@ -51,8 +87,17 @@ const portfolioItems = [
     id: 5,
     title: 'Kovak Boutique',
     category: 'Edición de Video + Diseño',
-    description: 'Estrategia integral de video marketing y diseño gráfico para boutique de moda. Desarrollamos contenido visual dinámico que combina videos atractivos con diseño gráfico profesional, destacando las colecciones y tendencias de moda para generar un engagement significativo y una conexión sólida con la audiencia objetivo en redes sociales.',
-    result: '250% crecimiento de engagement',
+    challenge: 'Boutique de moda que necesitaba generar un engagement significativo y una conexión sólida con su audiencia objetivo, pero su contenido no estaba destacando sus colecciones y tendencias de forma efectiva.',
+    strategy: [
+      'Estrategia integral de video marketing con contenido dinámico',
+      'Diseño gráfico profesional que destaca colecciones y tendencias',
+      'Combinación de videos atractivos con diseño gráfico',
+      'Enfoque en generar engagement y conexión con la audiencia',
+    ],
+    results: [
+      { metric: '+250%', label: 'crecimiento de engagement' },
+      { metric: 'Conexión sólida', label: 'con la audiencia objetivo' },
+    ],
     image: '/images/portfolio/imagen-portafolio-kovak.jpg',
     industry: 'Moda',
     instagram: 'boutique_lujo.mtr',
@@ -61,8 +106,17 @@ const portfolioItems = [
     id: 6,
     title: 'Épica Joyería',
     category: 'Manejo de Pautas',
-    description: 'Estrategia integral de manejo de pautas publicitarias para joyería. Desarrollamos campañas optimizadas con targeting preciso que conectan con el público objetivo interesado en joyería fina, maximizando el retorno de inversión publicitaria y generando conversiones significativas que se reflejan directamente en el aumento de ventas.',
-    result: 'Aumentó 200% en ventas',
+    challenge: 'Joyería que necesitaba aumentar sus ventas y maximizar el retorno de inversión publicitaria, pero sus campañas no estaban generando conversiones significativas.',
+    strategy: [
+      'Estrategia integral de manejo de pautas publicitarias',
+      'Campañas optimizadas con targeting preciso',
+      'Conexión con público objetivo interesado en joyería fina',
+      'Maximización del retorno de inversión publicitaria',
+    ],
+    results: [
+      { metric: '+200%', label: 'aumento en ventas' },
+      { metric: 'Conversiones significativas', label: 'con ROAS optimizado' },
+    ],
     image: '/images/portfolio/imagen-portafolio-epica.jpg',
     industry: 'Joyería',
     instagram: 'epicajoyeria_sas',
@@ -117,7 +171,7 @@ function PortfolioCard({ item, onSelect, index, isMobile = false }: PortfolioCar
       <div className="absolute inset-0 bg-gradient-to-t from-primary-purple/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
         <div className="text-white">
           <p className="text-sm font-medium mb-2">{item.industry}</p>
-          <p className="text-lg font-bold">{item.result}</p>
+          <p className="text-lg font-bold">{item.results[0]?.metric} {item.results[0]?.label}</p>
         </div>
       </div>
     </motion.div>
@@ -130,7 +184,7 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-primary-neutral/30 to-white"
+      className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-primary-neutral/30 to-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -139,21 +193,21 @@ export default function Portfolio() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8 sm:mb-12 lg:mb-16"
+          className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-primary-purple mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary-purple mb-2 sm:mb-4 px-4">
             Mira cómo hemos escalado marcas
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             Casos de éxito que demuestran resultados reales
           </p>
         </motion.div>
 
         {/* Portfolio - Carousel on mobile, Grid on desktop */}
-        <div className="md:hidden overflow-x-hidden">
+        <div className="md:hidden overflow-hidden">
           <div className="-mx-4 sm:-mx-6">
             <div className="px-4 sm:px-6">
-              <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
+              <Carousel autoPlay={true} autoPlayInterval={4500} showIndicators={true}>
                 {portfolioItems.map((item) => (
                   <PortfolioCard key={item.id} item={item} onSelect={() => setSelectedItem(item)} isMobile={true} />
                 ))}
@@ -182,7 +236,7 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
             onClick={() => setSelectedItem(null)}
           >
             <motion.div
@@ -190,14 +244,14 @@ export default function Portfolio() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl max-w-2xl w-full p-8 max-h-[90dvh] overflow-y-auto"
+              className="bg-white rounded-2xl max-w-2xl w-full p-4 sm:p-6 md:p-8 max-h-[90dvh] overflow-y-auto"
             >
-              <div className="flex justify-between items-start mb-6">
-                <div>
-                  <h3 className="text-3xl font-bold text-primary-purple mb-2">
+              <div className="flex justify-between items-start mb-4 sm:mb-6">
+                <div className="pr-4">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-purple mb-1 sm:mb-2">
                     {selectedItem.title}
                   </h3>
-                  <p className="text-gray-600">{selectedItem.category} • {selectedItem.industry}</p>
+                  <p className="text-sm sm:text-base text-gray-600">{selectedItem.category} • {selectedItem.industry}</p>
                 </div>
                 <button
                   onClick={() => setSelectedItem(null)}
@@ -207,7 +261,7 @@ export default function Portfolio() {
                 </button>
               </div>
 
-              <div className="aspect-video relative bg-gradient-to-br from-primary-purple to-primary-coral rounded-xl mb-6 overflow-hidden">
+              <div className="aspect-video relative bg-gradient-to-br from-primary-purple to-primary-coral rounded-xl mb-4 sm:mb-6 overflow-hidden">
                 <OptimizedImage
                   src={selectedItem.image}
                   alt={`${selectedItem.title} - ${selectedItem.category}`}
@@ -217,21 +271,42 @@ export default function Portfolio() {
                 />
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-4 sm:space-y-6">
                 <div>
-                  <h4 className="font-bold text-lg text-primary-purple mb-2">
-                    Descripción del Proyecto
+                  <h4 className="font-bold text-base sm:text-lg text-primary-purple mb-2 sm:mb-3">
+                    Reto
                   </h4>
-                  <p className="text-gray-700">{selectedItem.description}</p>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{selectedItem.challenge}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-lg text-primary-purple mb-2">
-                    Resultado
+                  <h4 className="font-bold text-base sm:text-lg text-primary-purple mb-2 sm:mb-3">
+                    Lo que hicimos
                   </h4>
-                  <p className="text-2xl font-bold text-primary-coral">
-                    {selectedItem.result}
-                  </p>
+                  <ul className="space-y-1.5 sm:space-y-2">
+                    {selectedItem.strategy.map((item, idx) => (
+                      <li key={idx} className="flex items-start text-gray-700">
+                        <span className="text-primary-coral mr-2 font-bold flex-shrink-0">•</span>
+                        <span className="text-sm sm:text-base leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-bold text-base sm:text-lg text-primary-purple mb-2 sm:mb-3">
+                    Resultados
+                  </h4>
+                  <div className="space-y-2 sm:space-y-3">
+                    {selectedItem.results.map((result, idx) => (
+                      <div key={idx} className="bg-gradient-to-r from-primary-purple/10 to-primary-coral/10 rounded-lg p-3 sm:p-4">
+                        <p className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-coral mb-1">
+                          {result.metric}
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-700 font-medium">{result.label}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {selectedItem.instagram && (

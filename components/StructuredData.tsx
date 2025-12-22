@@ -9,7 +9,7 @@ export default function StructuredData() {
     name: 'Zinergia Marketing',
     url: baseUrl,
     logo: `${baseUrl}/images/general/og-image.jpg`,
-    description: 'Agencia de marketing digital especializada en diseño gráfico, edición de video, páginas web, manejo de redes sociales y pautas publicitarias para PyMEs colombianas.',
+    description: 'Agencia de marketing digital especializada en diseño gráfico, edición de video, páginas web, manejo de redes sociales y pautas publicitarias para negocios colombianos.',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'CO',
@@ -46,7 +46,7 @@ export default function StructuredData() {
       addressCountry: 'CO',
     },
     priceRange: '$$',
-    description: 'Agencia de marketing digital que ofrece servicios de diseño gráfico, edición de video, desarrollo web, manejo de redes sociales y pautas publicitarias para PyMEs en Colombia.',
+    description: 'Agencia de marketing digital que ofrece servicios de diseño gráfico, edición de video, desarrollo web, manejo de redes sociales y pautas publicitarias para negocios en Colombia.',
     serviceArea: {
       '@type': 'Country',
       name: 'Colombia',
@@ -148,7 +148,7 @@ export default function StructuredData() {
         name: '¿Trabajan con empresas de todos los tamaños?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Sí, trabajamos principalmente con PyMEs colombianas que venden en redes sociales. Desde emprendedores que inician su presencia digital hasta empresas establecidas que buscan escalar. Nuestros planes están diseñados para adaptarse a diferentes etapas de crecimiento.',
+          text: 'Sí, trabajamos principalmente con negocios colombianos que venden en redes sociales. Desde emprendedores que inician su presencia digital hasta empresas establecidas que buscan escalar. Nuestros planes están diseñados para adaptarse a diferentes etapas de crecimiento.',
         },
       },
       {

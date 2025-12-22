@@ -30,7 +30,7 @@ export default function WhatsAppButton() {
       exit={{ scale: 0, opacity: 0 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-[#25D366] rounded-full shadow-2xl flex items-center justify-center hover:shadow-[#25D366]/50 transition-all duration-300"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] rounded-full shadow-2xl flex items-center justify-center hover:shadow-[#25D366]/50 transition-all duration-300"
       aria-label="Contactar por WhatsApp"
       onClick={() => {
         if (typeof window !== 'undefined' && window.gtag) {
@@ -42,7 +42,7 @@ export default function WhatsAppButton() {
       }}
     >
       <svg
-        className="w-8 h-8 text-white"
+        className="w-7 h-7 sm:w-8 sm:h-8 text-white"
         fill="currentColor"
         viewBox="0 0 24 24"
       >

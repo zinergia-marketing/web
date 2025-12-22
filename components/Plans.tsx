@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Carousel from './Carousel'
 import CountdownTimer from './CountdownTimer'
-import { MdAutoAwesome, MdRocketLaunch, MdBolt, MdCheckCircle, MdCelebration } from 'react-icons/md'
+import { MdAutoAwesome, MdRocketLaunch, MdBolt, MdStar, MdCheckCircle, MdCelebration } from 'react-icons/md'
 
 const DISCOUNT_PERCENTAGE = 20
 const DISCOUNT_END_DATE = new Date('2025-12-31T23:59:59')
@@ -37,7 +37,7 @@ const plans = [
     subtitle: 'ideal para quienes crecen',
     price: 1500000,
     benefit: 'Acelera tu crecimiento con contenido estratégico y pautas optimizadas que generan ventas constantes',
-    idealFor: 'PyMEs en crecimiento que buscan escalar ventas con marketing digital estructurado y resultados medibles',
+    idealFor: 'Negocios en crecimiento que buscan escalar ventas con marketing digital estructurado y resultados medibles',
     color: 'from-primary-coral to-primary-purple',
     icon: MdRocketLaunch,
     features: [
@@ -71,6 +71,28 @@ const plans = [
       'Landing Page incluida (nueva o mejoras mensuales)',
       '4 horas de asesoría estratégica mensual',
       'Reporte mensual ejecutivo con análisis predictivo',
+    ],
+    popular: false,
+  },
+  {
+    id: 4,
+    name: 'Plan Premium',
+    subtitle: 'ideal para empresas que buscan excelencia',
+    price: 4500000,
+    benefit: 'Solución integral premium con IA, automatizaciones, Club Zinergia y producción de contenido profesional',
+    idealFor: 'Empresas establecidas que buscan la solución más completa con todos los servicios avanzados, automatizaciones con IA y acompañamiento estratégico de alto nivel',
+    color: 'from-primary-coral to-primary-purple',
+    icon: MdStar,
+    features: [
+      'Todo lo incluido en Plan Avanzado',
+      'Chatbots con IA para WhatsApp y página web',
+      'Automatizaciones con Manychat en Instagram',
+      'Membresía al Club Zinergia incluida',
+      '2-3 reuniones estratégicas semanales',
+      'Capacitaciones para equipos de venta y marketing',
+      'Producción de contenido profesional (video y fotografía) - Los viáticos adicionales para producción fuera de Montería no están incluidos y deben ser costeados por el negocio',
+      'Asesoría estratégica fija y acompañamiento continuo',
+      'Acceso a recursos exclusivos y comunidad',
     ],
     popular: false,
   },
@@ -229,7 +251,7 @@ export default function Plans() {
   return (
     <section
       id="plans"
-      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-primary-neutral/30 to-white"
+      className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-primary-neutral/30 to-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -238,21 +260,21 @@ export default function Plans() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8 sm:mb-12 lg:mb-16"
+          className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-primary-purple mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary-purple mb-2 sm:mb-4 px-4">
             Planes Mensuales
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             Impulsa tu negocio con creatividad e inteligencia artificial. Elige el plan que mejor se adapte a tu etapa de crecimiento.
           </p>
         </motion.div>
 
         {/* Plans - Carousel on mobile, Grid on desktop */}
-        <div className="lg:hidden overflow-x-hidden overflow-y-visible">
+        <div className="lg:hidden overflow-hidden">
           <div className="-mx-4 sm:-mx-6">
             <div className="px-4 sm:px-6 pt-16 pb-2">
-              <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
+              <Carousel autoPlay={true} autoPlayInterval={4500} showIndicators={true}>
                 {plans.map((plan) => (
                   <PlanCard key={plan.id} plan={plan} getWhatsAppUrl={getWhatsAppUrl} isMobile={true} />
                 ))}
@@ -262,7 +284,7 @@ export default function Plans() {
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-8 items-start">
+        <div className="hidden lg:grid lg:grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-8 items-start">
           {plans.map((plan, index) => (
             <PlanCard
               key={plan.id}
@@ -286,6 +308,10 @@ export default function Plans() {
               <strong>Nota importante:</strong> Todos los planes incluyen 2 rondas de revisión por entregable. 
               Los presupuestos de pauta publicitaria se cobran aparte según tus objetivos. 
               Contratos mensuales con renovación automática. Descuentos disponibles para contratos trimestrales y anuales.
+            </p>
+            <p className="text-gray-700 text-sm">
+              <strong>Plan Premium:</strong> El Club Zinergia incluye 2-3 reuniones semanales y capacitaciones para equipos. 
+              Los viáticos para producción de contenido fuera de Montería deben ser costeados por el negocio.
             </p>
           </div>
         </motion.div>

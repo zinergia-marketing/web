@@ -59,9 +59,14 @@ function TestimonialCard({ testimonial, index, isMobile = false }: TestimonialCa
 
       {/* Result Badge */}
       <div className={isMobile ? 'mb-4' : 'mb-6'}>
-        <span className={`inline-block px-4 py-2 bg-gradient-primary text-white rounded-full ${isMobile ? 'text-xs' : 'text-sm'} font-semibold`}>
-          {testimonial.result}
-        </span>
+        <div className="bg-gradient-to-r from-primary-purple/10 to-primary-coral/10 rounded-lg p-3 sm:p-4 border-l-4 border-primary-coral">
+          <p className={`text-xs sm:text-sm text-gray-600 mb-1 ${isMobile ? '' : ''}`}>
+            Resultado:
+          </p>
+          <p className={`${isMobile ? 'text-base' : 'text-lg'} font-bold text-primary-coral`}>
+            {testimonial.result}
+          </p>
+        </div>
       </div>
 
       {/* Author */}
@@ -92,7 +97,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-12 sm:py-16 lg:py-20 bg-white"
+      className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -101,21 +106,21 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8 sm:mb-12 lg:mb-16"
+          className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-primary-purple mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary-purple mb-2 sm:mb-4 px-4">
             Lo que dicen nuestros clientes
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             Resultados reales de empresas que confiaron en nosotros
           </p>
         </motion.div>
 
         {/* Testimonials - Carousel on mobile, Grid on desktop */}
-        <div className="md:hidden overflow-x-hidden">
+        <div className="md:hidden overflow-hidden">
           <div className="-mx-4 sm:-mx-6">
             <div className="px-4 sm:px-6">
-              <Carousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
+              <Carousel autoPlay={true} autoPlayInterval={4500} showIndicators={true}>
                 {testimonials.map((testimonial) => (
                   <TestimonialCard key={testimonial.id} testimonial={testimonial} isMobile={true} />
                 ))}

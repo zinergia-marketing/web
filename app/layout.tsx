@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_DOMAIN ? `https://${process.env.NEXT_PUBLIC_DOMAIN}` : 'https://zinergiamarketing.info'),
   title: 'Zinergia | Marketing Digital - Diseño, Video y Web',
   description: 'Impulsa tu negocio con creatividad + IA. Diseño gráfico, edición de video profesional, páginas web, manejo de redes sociales y pautas publicitarias. Resultados en 30 días.',
-  keywords: 'marketing digital, diseño gráfico, edición de video, páginas web, manejo de redes sociales, pautas publicitarias, community management, branding, marketing digital Colombia, agencia de marketing digital, PyMEs Colombia',
+  keywords: 'marketing digital, diseño gráfico, edición de video, páginas web, manejo de redes sociales, pautas publicitarias, community management, branding, marketing digital Colombia, agencia de marketing digital, negocios Colombia',
   authors: [{ name: 'Zinergia Marketing' }],
   openGraph: {
     title: 'Zinergia | Marketing Digital',
