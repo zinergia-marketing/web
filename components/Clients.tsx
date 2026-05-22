@@ -1,16 +1,21 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Carousel from './Carousel'
 
 const clients = [
-  { name: 'TuColpagos', industry: 'Fintech' },
-  { name: 'Boutique La Guaca', industry: 'Moda' },
-  { name: 'Tecnomas Colombia', industry: 'Tecnología' },
-  { name: 'Terrasana SAS', industry: 'Psicultura' },
-  { name: 'Kovak Boutique', industry: 'Moda' },
-  { name: 'Épica Joyería', industry: 'Joyería' },
+  { name: 'TuColpagos', industry: 'Fintech', slug: 'tucolpagos' },
+  { name: 'Boutique La Guaca', industry: 'Moda', slug: 'laguaca' },
+  { name: 'Tecnomas Colombia', industry: 'Tecnología', slug: 'tecnomas' },
+  { name: 'Terrasana SAS', industry: 'Psicultura', slug: 'terrasana' },
+  { name: 'Kovak Boutique', industry: 'Moda', slug: 'kovak' },
+  { name: 'Épica Joyería', industry: 'Joyería', slug: 'epica' },
 ]
+
+function clientLogoSrc(slug: string) {
+  return `/images/clients/logo-cliente-${slug}.svg`
+}
 
 const industries = ['Fintech', 'Moda', 'Tecnología', 'Psicultura', 'Joyería']
 
@@ -20,14 +25,37 @@ interface ClientCardProps {
 }
 
 function ClientCard({ client, isMobile = false }: ClientCardProps) {
+  const [logoError, setLogoError] = useState(false)
+  const showLogo = !logoError
+
   return (
     <div className={`bg-gradient-to-br from-primary-neutral/20 to-white rounded-xl ${isMobile ? 'p-4' : 'p-6 sm:p-8'} shadow-md hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center text-center ${isMobile ? 'min-h-[100px]' : 'min-h-[120px] sm:min-h-[140px]'}`}>
-      <h3 className={`${isMobile ? 'text-sm' : 'text-base sm:text-lg'} font-bold text-primary-purple ${isMobile ? 'mb-1' : 'mb-2'}`}>
-        {client.name}
-      </h3>
-      <p className={`${isMobile ? 'text-xs' : 'text-xs sm:text-sm'} text-gray-600`}>
-        {client.industry}
-      </p>
+      {showLogo ? (
+        <>
+          <div
+            className={`relative w-full flex items-center justify-center ${isMobile ? 'h-14 mb-2' : 'h-16 sm:h-20 mb-2 sm:mb-3'}`}
+          >
+            <img
+              src={clientLogoSrc(client.slug)}
+              alt={`Logo de ${client.name}`}
+              className="max-h-full max-w-full w-auto object-contain"
+              onError={() => setLogoError(true)}
+            />
+          </div>
+          <p className={`${isMobile ? 'text-xs' : 'text-xs sm:text-sm'} text-gray-600`}>
+            {client.industry}
+          </p>
+        </>
+      ) : (
+        <>
+          <h3 className={`${isMobile ? 'text-sm' : 'text-base sm:text-lg'} font-bold text-primary-purple ${isMobile ? 'mb-1' : 'mb-2'}`}>
+            {client.name}
+          </h3>
+          <p className={`${isMobile ? 'text-xs' : 'text-xs sm:text-sm'} text-gray-600`}>
+            {client.industry}
+          </p>
+        </>
+      )}
     </div>
   )
 }
